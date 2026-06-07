@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Дмитрий Яковлев — Веб-разработчик & SEO</title>
+<meta name="description" content="Веб-разработчик и SEO-специалист. Делаю сайты для производителей климатического и торгового оборудования.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0a192f;
+  --bg-light: #112240;
+  --bg-lightest: #233554;
+  --slate: #8892b0;
+  --slate-light: #a8b2d1;
+  --slate-lightest: #ccd6f6;
+  --white: #e6f1ff;
+  --accent: #64ffda;
+  --accent-tint: rgba(100, 255, 218, 0.1);
+  --font-sans: 'Inter', -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', 'SF Mono', Menlo, monospace;
+  --transition: cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--slate);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* Подсветка курсора */
+.spotlight {
+  position: fixed;
+  pointer-events: none;
+  inset: 0;
+  z-index: 30;
+  transition: background 0.1s linear;
+  background: radial-gradient(600px at var(--x, 50%) var(--y, 50%), rgba(29, 78, 216, 0.15), transparent 80%);
+}
+
+/* Контейнер */
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  min-height: 100vh;
+}
+
+@media (max-width: 1024px) {
+  .container { grid-template-columns: 1fr; }
+}
+
+/* Левая колонка — sticky */
+.sidebar {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  padding: 96px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+@media (max-width: 1024px) {
+  .sidebar { position: relative; height: auto; padding: 96px 0 48px; }
+}
+
+.name {
+  font-size: clamp(40px, 5vw, 56px);
+  font-weight: 700;
+  color: var(--slate-lightest);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin-bottom: 12px;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--slate-lightest);
+  margin-bottom: 16px;
+}
+
+.tagline {
+  max-width: 320px;
+  color: var(--slate);
+  margin-bottom: 64px;
+}
+
+/* Навигация */
+.nav { margin-bottom: 64px; }
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: var(--slate);
+  text-decoration: none;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 8px 0;
+  transition: color 0.2s var(--transition);
+  cursor: pointer;
+}
+
+.nav-indicator {
+  width: 32px;
+  height: 1px;
+  background: var(--slate);
+  transition: all 0.2s var(--transition);
+}
+
+.nav-link:hover { color: var(--slate-lightest); }
+.nav-link:hover .nav-indicator { width: 64px; background: var(--slate-lightest); }
+
+.nav-link.active { color: var(--slate-lightest); }
+.nav-link.active .nav-indicator { width: 64px; background: var(--slate-lightest); }
+
+/* Соцсети */
+.socials {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.social-link {
+  color: var(--slate);
+  transition: color 0.2s var(--transition);
+  display: inline-flex;
+}
+
+.social-link:hover { color: var(--accent); transform: translateY(-2px); }
+
+.social-link svg { width: 22px; height: 22px; }
+
+/* Правая колонка — контент */
+.main {
+  padding: 96px 0;
+}
+
+@media (max-width: 1024px) {
+  .main { padding: 0 0 96px; }
+}
+
+.section {
+  margin-bottom: 96px;
+  scroll-margin-top: 48px;
+}
+
+.section-title-mobile {
+  display: none;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--slate-lightest);
+  margin-bottom: 24px;
+}
+
+@media (max-width: 1024px) {
+  .section-title-mobile { display: block; }
+}
+
+.section p {
+  margin-bottom: 16px;
+  color: var(--slate);
+}
+
+.section p strong {
+  color: var(--slate-lightest);
+  font-weight: 500;
+}
+
+/* Группы опыта */
+.experience-item, .project-item {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 24px;
+  padding: 24px;
+  margin: 0 -24px 16px;
+  border-radius: 8px;
+  transition: all 0.2s var(--transition);
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+}
+
+.experience-item:hover, .project-item:hover {
+  background: rgba(17, 34, 64, 0.5);
+  box-shadow: inset 0 1px 0 0 rgba(148, 163, 184, 0.1);
+}
+
+.experience-item:hover .item-title, .project-item:hover .item-title {
+  color: var(--accent);
+}
+
+.item-date {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--slate-light);
+  padding-top: 4px;
+}
+
+@media (max-width: 640px) {
+  .experience-item, .project-item {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+}
+
+.item-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--slate-lightest);
+  margin-bottom: 4px;
+  transition: color 0.2s var(--transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.item-title svg {
+  width: 14px;
+  height: 14px;
+  transition: transform 0.2s var(--transition);
+}
+
+.experience-item:hover .item-title svg, .project-item:hover .item-title svg {
+  transform: translate(2px, -2px);
+}
+
+.item-company {
+  font-size: 14px;
+  color: var(--slate-light);
+  margin-bottom: 8px;
+}
+
+.item-description {
+  font-size: 14px;
+  color: var(--slate);
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.tag {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  padding: 4px 10px;
+  background: var(--accent-tint);
+  color: var(--accent);
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.project-preview {
+  width: 100px;
+  height: 64px;
+  border-radius: 4px;
+  background: var(--bg-light);
+  border: 1px solid var(--bg-lightest);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--slate);
+  margin-top: 4px;
+}
+
+/* Кнопка "Посмотреть все" */
+.view-all {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--slate-lightest);
+  font-weight: 500;
+  font-size: 15px;
+  text-decoration: none;
+  margin-top: 16px;
+  padding: 8px 24px 8px 24px;
+  transition: color 0.2s var(--transition);
+}
+
+.view-all:hover { color: var(--accent); }
+.view-all svg { width: 14px; height: 14px; transition: transform 0.2s var(--transition); }
+.view-all:hover svg { transform: translateX(4px); }
+
+/* Footer */
+.footer {
+  padding: 0 24px 32px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--slate);
+  text-align: center;
+}
+
+.footer a { color: inherit; text-decoration: none; }
+.footer a:hover { color: var(--accent); }
+
+/* Линки в тексте */
+.inline-link {
+  color: var(--slate-lightest);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--slate);
+  transition: color 0.2s var(--transition);
+}
+.inline-link:hover { color: var(--accent); border-color: var(--accent); }
+</style>
+</head>
+<body>
+
+<div class="spotlight" id="spotlight"></div>
+
+<div class="container">
+  <!-- ЛЕВАЯ КОЛОНКА -->
+  <aside class="sidebar">
+    <div>
+      <h1 class="name">Дмитрий Яковлев</h1>
+      <h2 class="title">Веб-разработчик & SEO</h2>
+      <p class="tagline">Делаю сайты и продвижение для производителей климатического и торгового оборудования.</p>
+
+      <nav class="nav">
+        <ul class="nav-list">
+          <li><a class="nav-link" href="#about" data-section="about"><span class="nav-indicator"></span>Обо мне</a></li>
+          <li><a class="nav-link" href="#experience" data-section="experience"><span class="nav-indicator"></span>Опыт</a></li>
+          <li><a class="nav-link" href="#projects" data-section="projects"><span class="nav-indicator"></span>Проекты</a></li>
+          <li><a class="nav-link" href="#contact" data-section="contact"><span class="nav-indicator"></span>Контакты</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="socials">
+      <a href="https://instagram.com/dmitryyakovlevdev" class="social-link" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      </a>
+      <a href="#" class="social-link" target="_blank" rel="noopener" aria-label="Dzen">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm0 18.5a8.5 8.5 0 110-17 8.5 8.5 0 010 17zM12 6l1.4 4.6L18 12l-4.6 1.4L12 18l-1.4-4.6L6 12l4.6-1.4L12 6z"/></svg>
+      </a>
+      <a href="#" class="social-link" target="_blank" rel="noopener" aria-label="GitHub">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .3a12 12 0 00-3.8 23.38c.6.12.83-.26.83-.57V21.3c-3.34.72-4.04-1.61-4.04-1.61-.55-1.4-1.34-1.77-1.34-1.77-1.08-.74.09-.73.09-.73 1.2.09 1.83 1.24 1.83 1.24 1.08 1.83 2.81 1.3 3.5 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 016 0c2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.25 2.88.12 3.18a4.65 4.65 0 011.23 3.22c0 4.61-2.8 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58A12 12 0 0012 .3"/></svg>
+      </a>
+      <a href="mailto:hello@dmitryyakovlev.by" class="social-link" aria-label="Email">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      </a>
+    </div>
+  </aside>
+
+  <!-- ПРАВАЯ КОЛОНКА -->
+  <main class="main">
+
+    <!-- ABOUT -->
+    <section id="about" class="section">
+      <h3 class="section-title-mobile">Обо мне</h3>
+      <p>
+        Начал в холодильной индустрии — <strong>монтировал оборудование</strong> в «Сфере Торгового Оборудования». Со временем пересел за разработку сайтов для той же ниши: <strong>понимаю предметную область изнутри</strong>, что редко бывает у обычных подрядчиков.
+      </p>
+      <p>
+        Сейчас делаю полный цикл: <strong>дизайн в Figma → вёрстка → CMS → SEO</strong>. Работаю с 1С-Битрикс, WordPress, OpenCart, Magento, Shopify. На своём опыте знаю, что нужно производителю — потому что был внутри такого бизнеса.
+      </p>
+      <p>
+        В свободное время пишу разборы кейсов на <a href="#" class="inline-link">Dzen</a> — про разработку, оптимизацию и инструменты.
+      </p>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience" class="section">
+      <h3 class="section-title-mobile">Опыт работы</h3>
+
+      <a href="#" class="experience-item" target="_blank" rel="noopener">
+        <div class="item-date">2024 — сейчас</div>
+        <div>
+          <h4 class="item-title">
+            Веб-разработчик, SEO, Дизайнер · ЧП «ПромТехноТрейд»
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+          </h4>
+          <p class="item-description">
+            Разработка и поддержка четырёх сайтов в нише торгового и климатического оборудования. SEO-продвижение, контекстная реклама (Google Ads, РСЯ), баннеры, email-рассылки. Полный цикл — от Figma до запуска.
+          </p>
+          <div class="tags">
+            <span class="tag">1С-Битрикс</span>
+            <span class="tag">WordPress</span>
+            <span class="tag">SEO</span>
+            <span class="tag">Figma</span>
+            <span class="tag">Google Ads</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="#" class="experience-item" target="_blank" rel="noopener">
+        <div class="item-date">2020 — 2024</div>
+        <div>
+          <h4 class="item-title">
+            Веб-разработчик · ООО «Сфера Торгового Оборудования»
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+          </h4>
+          <p class="item-description">
+            Полный цикл разработки на WordPress: дизайн → вёрстка → установка → наполнение. Кастомные React-компоненты: умный поиск, система комментариев. Парсинг конкурентов и сбор аналитики.
+          </p>
+          <div class="tags">
+            <span class="tag">WordPress</span>
+            <span class="tag">React</span>
+            <span class="tag">PHP</span>
+            <span class="tag">SEO</span>
+            <span class="tag">Парсинг</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="#" class="experience-item" target="_blank" rel="noopener">
+        <div class="item-date">До 2020</div>
+        <div>
+          <h4 class="item-title">
+            Монтаж холодильного оборудования · ООО «Сфера Торгового Оборудования»
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+          </h4>
+          <p class="item-description">
+            Полевой опыт: монтаж и настройка торгового и холодильного оборудования. База, на которой строится сегодняшнее понимание индустрии.
+          </p>
+          <div class="tags">
+            <span class="tag">HVAC</span>
+            <span class="tag">Полевой опыт</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="#" class="view-all">
+        Полное резюме
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="section">
+      <h3 class="section-title-mobile">Избранные проекты</h3>
+
+      <a href="https://ptt.by" class="project-item" target="_blank" rel="noopener">
+        <div class="project-preview">ptt.by</div>
+        <div>
+          <h4 class="item-title">
+            ПромТехноТрейд — корпоративный сайт
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+          </h4>
+          <p class="item-description">
+            Корпоративный сайт компании на 1С-Битрикс. Дизайн, вёрстка, SEO-оптимизация, ускорение загрузки, адаптив под мобильные. Разбор кейса на Dzen.
+          </p>
+          <div class="tags">
+            <span class="tag">1С-Битрикс</span>
+            <span class="tag">SEO</span>
+            <span class="tag">Figma</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="https://splitberry.by" class="project-item" target="_blank" rel="noopener">
+        <div class="project-preview">splitberry.by</div>
+        <div>
+          <h4 class="item-title">
+            Splitberry — кондиционеры и сплит-системы
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+          </h4>
+          <p class="item-description">
+            Сайт по продаже климатического оборудования. Каталог, фильтры по характеристикам, интеграция с 1С. SEO-структура под коммерческие запросы по моделям и брендам.
+          </p>
+          <div class="tags">
+            <span class="tag">1С-Битрикс</span>
+            <span class="tag">Каталог</span>
+            <span class="tag">SEO</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="https://vintes.by" class="project-item" target="_blank" rel="noopener">
+        <div class="project-preview">vintes.by</div>
+        <div>
+          <h4 class="item-title">
+            Vintes — винные шкафы
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+          </h4>
+          <p class="item-description">
+            Узкоспециализированный e-commerce. Подробный разбор разработки — на моём канале Dzen: dzen.ru/a/aH6TU0qCAA5vDidC
+          </p>
+          <div class="tags">
+            <span class="tag">1С-Битрикс</span>
+            <span class="tag">E-commerce</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="https://ulov.by" class="project-item" target="_blank" rel="noopener">
+        <div class="project-preview">ulov.by</div>
+        <div>
+          <h4 class="item-title">
+            Ulov — нишевая платформа
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+          </h4>
+          <p class="item-description">
+            Веб-приложение, которое увеличило продажи на 40%. Кейс детально разобран на Dzen: dzen.ru/a/aIx-BYs8iiGuP5gK
+          </p>
+          <div class="tags">
+            <span class="tag">Web App</span>
+            <span class="tag">+40% продаж</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="#" class="view-all">
+        Все проекты
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section">
+      <h3 class="section-title-mobile">Контакты</h3>
+      <p>
+        Открыт к проектам в нише <strong>климатического и торгового оборудования</strong>, а также к интересным задачам по SEO и разработке за пределами ниши. Пишите на <a href="mailto:hello@dmitryyakovlev.by" class="inline-link">hello@dmitryyakovlev.by</a> или в <a href="https://instagram.com/dmitryyakovlevdev" class="inline-link" target="_blank" rel="noopener">Instagram</a>.
+      </p>
+    </section>
+
+    <footer class="footer">
+      <p>Сверстано вручную в VS Code · Дизайн вдохновлён <a href="https://brittanychiang.com" target="_blank" rel="noopener">Brittany Chiang</a></p>
+    </footer>
+  </main>
+</div>
+
+<script>
+// Подсветка курсора
+const spotlight = document.getElementById('spotlight');
+document.addEventListener('mousemove', (e) => {
+  spotlight.style.setProperty('--x', e.clientX + 'px');
+  spotlight.style.setProperty('--y', e.clientY + 'px');
+});
+
+// Подсветка активной секции при скролле
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-link');
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const id = entry.target.id;
+      navLinks.forEach(link => {
+        link.classList.toggle('active', link.dataset.section === id);
+      });
+    }
+  });
+}, { rootMargin: '-40% 0px -50% 0px' });
+
+sections.forEach(section => observer.observe(section));
+
+// Плавный скролл по клику на нав-ссылке
+navLinks.forEach(link => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+    const id = link.dataset.section;
+    document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+  });
+});
+</script>
+
+</body>
+</html>
