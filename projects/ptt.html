@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ПромТехноТрейд — Дмитрий Яковлев</title>
+<meta name="description" content="Кейс: разработка сайта для компании по монтажу кондиционеров и систем вентиляции.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" href="/img/icons/favicon.ico">
+<style>
+:root {
+  --bg: #0a192f;
+  --bg-light: #112240;
+  --bg-lightest: #233554;
+  --slate: #8892b0;
+  --slate-light: #a8b2d1;
+  --slate-lightest: #ccd6f6;
+  --white: #e6f1ff;
+  --accent: #64ffda;
+  --accent-tint: rgba(100, 255, 218, 0.1);
+  --font-sans: 'Inter', -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', 'SF Mono', Menlo, monospace;
+  --transition: cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--slate);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.spotlight {
+  position: fixed;
+  pointer-events: none;
+  inset: 0;
+  z-index: 30;
+  background: radial-gradient(600px at var(--x, 50%) var(--y, 50%), rgba(29, 78, 216, 0.15), transparent 80%);
+}
+
+.page {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 64px 24px 120px;
+}
+
+/* Назад */
+.back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--slate);
+  text-decoration: none;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 64px;
+  transition: color 0.2s var(--transition);
+}
+.back:hover { color: var(--accent); }
+.back svg { width: 16px; height: 16px; transition: transform 0.2s var(--transition); }
+.back:hover svg { transform: translateX(-3px); }
+
+/* Шапка проекта */
+.proj-year {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+
+.proj-title {
+  font-size: clamp(32px, 6vw, 48px);
+  font-weight: 700;
+  color: var(--slate-lightest);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin-bottom: 8px;
+}
+
+.proj-subtitle {
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--slate-light);
+  margin-bottom: 32px;
+}
+
+/* Кнопки-ссылки */
+.proj-links {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 48px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.2s var(--transition);
+}
+
+.btn-primary {
+  background: var(--accent-tint);
+  color: var(--accent);
+  border: 1px solid rgba(100, 255, 218, 0.3);
+}
+.btn-primary:hover {
+  background: rgba(100, 255, 218, 0.2);
+  border-color: var(--accent);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--slate-light);
+  border: 1px solid var(--bg-lightest);
+}
+.btn-secondary:hover {
+  color: var(--slate-lightest);
+  border-color: var(--slate-light);
+}
+
+.btn svg { width: 13px; height: 13px; }
+
+/* Превью */
+.proj-preview {
+  width: 100%;
+  height: 220px;
+  background: var(--bg-light);
+  border: 1px solid var(--bg-lightest);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--slate-light);
+  margin-bottom: 40px;
+  position: relative;
+  overflow: hidden;
+}
+.proj-preview::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 30% 50%, rgba(100, 255, 218, 0.06), transparent 60%);
+}
+
+/* Теги */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 56px;
+}
+
+.tag {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  padding: 4px 10px;
+  background: var(--accent-tint);
+  color: var(--accent);
+  border-radius: 999px;
+}
+
+/* Контент кейса */
+.proj-section {
+  margin-bottom: 48px;
+}
+
+.proj-section-title {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 16px;
+}
+
+.proj-section p {
+  color: var(--slate);
+  margin-bottom: 12px;
+  line-height: 1.7;
+}
+
+.proj-section p:last-child { margin-bottom: 0; }
+
+.proj-section strong {
+  color: var(--slate-lightest);
+  font-weight: 500;
+}
+
+/* Навигация по проектам */
+.proj-nav {
+  border-top: 1px solid var(--bg-lightest);
+  padding-top: 48px;
+  margin-top: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+}
+
+.proj-nav a {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  text-decoration: none;
+  transition: color 0.2s var(--transition);
+}
+
+.proj-nav a:last-child { align-items: flex-end; }
+
+.proj-nav-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--slate);
+}
+
+.proj-nav-title {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--slate-lightest);
+}
+
+.proj-nav a:hover .proj-nav-title { color: var(--accent); }
+</style>
+</head>
+<body>
+
+<div class="spotlight" id="spotlight"></div>
+
+<div class="page">
+
+  <a href="/" class="back">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/>
+    </svg>
+    Дмитрий Яковлев
+  </a>
+
+  <p class="proj-year">2024 — 2025</p>
+  <h1 class="proj-title">ПромТехноТрейд</h1>
+  <p class="proj-subtitle">Монтаж и обслуживание HVAC</p>
+
+  <div class="proj-links">
+    <a href="https://ptt.by" target="_blank" rel="noopener" class="btn btn-primary">
+      Открыть сайт
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+    </a>
+    <a href="https://dzen.ru/a/aIG9CYmLr1s6dcBG" target="_blank" rel="noopener" class="btn btn-secondary">
+      Кейс на Dzen
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+    </a>
+  </div>
+
+  <div class="proj-preview">ptt.by</div>
+
+  <div class="tags">
+    <span class="tag">WordPress</span>
+    <span class="tag">Брендинг</span>
+    <span class="tag">SEO</span>
+    <span class="tag">Адаптив</span>
+  </div>
+
+  <div class="proj-section">
+    <p class="proj-section-title">Задача</p>
+    <p>
+      Компания занималась монтажом и обслуживанием кондиционеров и систем вентиляции, но сайт работал против неё: <strong>медленная загрузка</strong>, отсутствие мобильной версии, размытый оффер. Потенциальные клиенты уходили, не дождавшись загрузки страницы.
+    </p>
+    <p>
+      Нужно было полностью переделать присутствие компании в интернете — от фирменного стиля до технической SEO-базы.
+    </p>
+  </div>
+
+  <div class="proj-section">
+    <p class="proj-section-title">Решение</p>
+    <p>
+      Написал <strong>кастомный шаблон WordPress с нуля</strong> — без page builders и лишних плагинов. Это дало контроль над скоростью и разметкой.
+    </p>
+    <p>
+      Переработал логотип: упростил форму, смягчил палитру. Вместо абстрактных stock-фото — <strong>баннер с фотографией директора</strong> и конкретной формой обратной связи. Простой человеческий сигнал доверия.
+    </p>
+    <p>
+      Настроил полный SEO-стек: <strong>Google Search Console, Яндекс.Вебмастер, Bing Webmaster Tools</strong>. Адаптивная вёрстка для всех устройств, семантическая HTML-структура, корректные мета-теги и микроразметка.
+    </p>
+  </div>
+
+  <div class="proj-section">
+    <p class="proj-section-title">Результат</p>
+    <p>
+      Сайт проиндексировался в трёх поисковиках. <strong>Стабильный поток входящих заявок</strong> с первых недель после запуска. Баннер с директором оказался конверсионным — люди охотнее звонят, когда видят живого человека.
+    </p>
+  </div>
+
+  <nav class="proj-nav">
+    <a href="/projects/ulov.html">
+      <span class="proj-nav-label">← Предыдущий</span>
+      <span class="proj-nav-title">Ulov</span>
+    </a>
+    <a href="/projects/splitberry.html">
+      <span class="proj-nav-label">Следующий →</span>
+      <span class="proj-nav-title">Splitberry</span>
+    </a>
+  </nav>
+
+</div>
+
+<script>
+const spotlight = document.getElementById('spotlight');
+document.addEventListener('mousemove', (e) => {
+  spotlight.style.setProperty('--x', e.clientX + 'px');
+  spotlight.style.setProperty('--y', e.clientY + 'px');
+});
+</script>
+
+</body>
+</html>
