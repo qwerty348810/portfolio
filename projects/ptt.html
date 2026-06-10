@@ -249,6 +249,81 @@ body {
 }
 
 .proj-nav a:hover .proj-nav-title { color: var(--accent); }
+
+/* Было / Стало */
+.compare {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.compare figure {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.compare figcaption {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--slate);
+}
+
+.compare figure:first-child figcaption::before {
+  content: '— ';
+  color: #ff6b6b;
+}
+
+.compare figure:last-child figcaption::before {
+  content: '+ ';
+  color: var(--accent);
+}
+
+.compare img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 6px;
+  border: 1px solid var(--bg-lightest);
+  background: var(--bg-light);
+}
+
+@media (max-width: 540px) {
+  .compare { grid-template-columns: 1fr; }
+}
+
+.changes-list {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0 0;
+  display: grid;
+  gap: 10px;
+}
+
+.changes-list li {
+  padding-left: 20px;
+  position: relative;
+  color: var(--slate);
+  line-height: 1.6;
+}
+
+.changes-list li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-family: var(--font-mono);
+}
+
+.changes-list strong {
+  color: var(--slate-lightest);
+  font-weight: 500;
+}
 </style>
 </head>
 <body>
@@ -309,6 +384,31 @@ body {
     <p>
       Настроил полный SEO-стек: <strong>Google Search Console, Яндекс.Вебмастер, Bing Webmaster Tools</strong>. Адаптивная вёрстка для всех устройств, семантическая HTML-структура, корректные мета-теги и микроразметка.
     </p>
+  </div>
+
+  <div class="proj-section">
+    <p class="proj-section-title">Было / Стало</p>
+    <div class="compare">
+      <figure>
+        <img src="/img/projects/ptt-before.jpg" alt="ptt.by до редизайна" loading="lazy">
+        <figcaption>Было</figcaption>
+      </figure>
+      <figure>
+        <img src="/img/projects/ptt-after.jpg" alt="ptt.by после редизайна" loading="lazy">
+        <figcaption>Стало</figcaption>
+      </figure>
+    </div>
+    <p>
+      Старый сайт держался на шаблоне TemplateMonster 2010-х: стоковое фото рабочего с инструментами вместо рассказа о компании, всё заглавными буквами, печать «Best Quality» поверх контента и минимум контактной информации. Доверия — ноль.
+    </p>
+    <ul class="changes-list">
+      <li><strong>Hero-блок.</strong> Фото директора Дмитрия Кацера вместо стока — конкретный человек, к которому можно позвонить.</li>
+      <li><strong>Контактная плашка.</strong> Телефон, email, адрес и часы работы вынесены в шапку — видно с первого экрана без скролла.</li>
+      <li><strong>Навигация.</strong> Выпадающие меню «О нас» и «Услуги», поиск, явные разделы «Контакты» и «Новости».</li>
+      <li><strong>Типографика.</strong> Чистая иерархия со строчными буквами вместо сплошного капса.</li>
+      <li><strong>Услуги.</strong> Двухколоночный список с чек-маркерами — десять направлений сканируются за секунду.</li>
+      <li><strong>Footer.</strong> Структурированные разделы «О компании» и «Информация» с реквизитами и каталогом вместо одиночной строки копирайта.</li>
+    </ul>
   </div>
 
   <div class="proj-section">
