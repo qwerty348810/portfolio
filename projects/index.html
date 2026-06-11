@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Все проекты — Дмитрий Яковлев</title>
+<meta name="description" content="Все проекты Дмитрия Яковлева: разработка сайтов, дизайн, SEO, интеграции.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="apple-touch-icon" sizes="180x180" href="/img/icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/img/icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/img/icons/favicon-16x16.png">
+<link rel="icon" href="/img/icons/favicon.ico">
+<style>
+:root {
+  --bg: #0a192f;
+  --bg-light: #112240;
+  --bg-lightest: #233554;
+  --slate: #8892b0;
+  --slate-light: #a8b2d1;
+  --slate-lightest: #ccd6f6;
+  --white: #e6f1ff;
+  --accent: #64ffda;
+  --accent-tint: rgba(100, 255, 218, 0.1);
+  --font-sans: 'Inter', -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', 'SF Mono', Menlo, monospace;
+  --transition: cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--slate);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.spotlight {
+  position: fixed;
+  pointer-events: none;
+  inset: 0;
+  z-index: 30;
+  background: radial-gradient(600px at var(--x, 50%) var(--y, 50%), rgba(29, 78, 216, 0.15), transparent 80%);
+}
+
+.page {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 64px 24px 120px;
+}
+
+.back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--slate);
+  text-decoration: none;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 64px;
+  transition: color 0.2s var(--transition);
+}
+.back:hover { color: var(--accent); }
+.back svg { width: 16px; height: 16px; transition: transform 0.2s var(--transition); }
+.back:hover svg { transform: translateX(-3px); }
+
+.page-header {
+  margin-bottom: 56px;
+}
+
+.page-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+
+.page-title {
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 700;
+  color: var(--slate-lightest);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+
+.page-desc {
+  max-width: 560px;
+  color: var(--slate);
+  font-size: 15px;
+}
+
+/* Таблица проектов */
+.projects-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.projects-table thead tr {
+  border-bottom: 1px solid var(--bg-lightest);
+}
+
+.projects-table th {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--slate-light);
+  padding: 0 16px 12px 0;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.projects-table th:last-child { padding-right: 0; }
+
+.projects-table tbody tr {
+  border-bottom: 1px solid rgba(35, 53, 84, 0.5);
+  transition: background 0.15s var(--transition);
+}
+
+.projects-table tbody tr:hover {
+  background: rgba(17, 34, 64, 0.6);
+}
+
+.projects-table td {
+  padding: 20px 16px 20px 0;
+  vertical-align: top;
+}
+
+.projects-table td:last-child { padding-right: 0; }
+
+.td-year {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--slate-light);
+  white-space: nowrap;
+  padding-top: 22px !important;
+}
+
+.td-name {
+  min-width: 180px;
+}
+
+.project-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--slate-lightest);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  text-decoration: none;
+  transition: color 0.2s var(--transition);
+  line-height: 1.3;
+}
+
+.project-name:hover { color: var(--accent); }
+
+.project-name svg {
+  width: 12px;
+  height: 12px;
+  flex-shrink: 0;
+  opacity: 0.6;
+  transition: opacity 0.2s, transform 0.2s var(--transition);
+}
+
+.project-name:hover svg {
+  opacity: 1;
+  transform: translate(2px, -2px);
+}
+
+.project-desc {
+  font-size: 13px;
+  color: var(--slate);
+  margin-top: 4px;
+  line-height: 1.5;
+  max-width: 420px;
+}
+
+.dzen-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 6px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--slate);
+  text-decoration: none;
+  border-bottom: 1px dotted transparent;
+  transition: color 0.2s, border-color 0.2s;
+}
+.dzen-link:hover { color: var(--accent); border-color: var(--accent); }
+.dzen-link svg { width: 10px; height: 10px; }
+
+.td-tags {
+  width: 1%;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding-top: 4px;
+}
+
+.tag {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  padding: 3px 8px;
+  background: var(--accent-tint);
+  color: var(--accent);
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+/* Мобильная версия — скрыть таблицу, показать карточки */
+@media (max-width: 680px) {
+  .projects-table thead { display: none; }
+
+  .projects-table, .projects-table tbody, .projects-table tr, .projects-table td {
+    display: block;
+    width: 100%;
+  }
+
+  .projects-table tbody tr {
+    padding: 20px 0;
+    border-bottom: 1px solid var(--bg-lightest);
+  }
+
+  .projects-table td {
+    padding: 0 0 8px;
+  }
+
+  .td-year {
+    padding-top: 0 !important;
+    font-size: 11px;
+    color: var(--accent);
+  }
+
+  .td-tags { width: 100%; }
+
+  .project-desc { max-width: 100%; }
+}
+</style>
+</head>
+<body>
+
+<div class="spotlight" id="spotlight"></div>
+
+<div class="page">
+  <a href="/" class="back">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+    Дмитрий Яковлев
+  </a>
+
+  <header class="page-header">
+    <p class="page-label">Портфолио</p>
+    <h1 class="page-title">Все проекты</h1>
+    <p class="page-desc">Сайты, сервисы и интеграции — от идеи до запуска. Дизайн, разработка, SEO и реклама.</p>
+  </header>
+
+  <table class="projects-table">
+    <thead>
+      <tr>
+        <th>Год</th>
+        <th>Проект</th>
+        <th>Стек</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr>
+        <td class="td-year">2025</td>
+        <td class="td-name">
+          <a href="https://dzen.ru/a/aIx-BYs8iiGuP5gK" target="_blank" rel="noopener" class="project-name">
+            Веб-приложение +40% к продажам
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+          </a>
+          <p class="project-desc">Разработка веб-приложения, которое увеличило продажи клиента на 40%.</p>
+          <a href="https://dzen.ru/a/aIx-BYs8iiGuP5gK" target="_blank" rel="noopener" class="dzen-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            Статья на Дзен
+          </a>
+        </td>
+        <td class="td-tags">
+          <div class="tags">
+            <span class="tag">Веб-приложение</span>
+            <span class="tag">E-commerce</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="td-year">2025</td>
+        <td class="td-name">
+          <a href="https://ulov.by" target="_blank" rel="noopener" class="project-name">
+            ulov.by
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+          </a>
+          <p class="project-desc">Интеграция 1С и Битрикс: управление сайтом. Доработка шаблона Univers от Intec. Разработка дизайна, отрисовка баннеров и иконок. Наполнение товарами, администрирование. Запуск рекламы и SEO.</p>
+        </td>
+        <td class="td-tags">
+          <div class="tags">
+            <span class="tag">1С-Битрикс</span>
+            <span class="tag">Интеграция с 1С</span>
+            <span class="tag">Дизайн</span>
+            <span class="tag">SEO</span>
+            <span class="tag">Реклама</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="td-year">2024</td>
+        <td class="td-name">
+          <a href="https://ptt.by" target="_blank" rel="noopener" class="project-name">
+            ptt.by
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+          </a>
+          <p class="project-desc">Разработка сайта и дизайна на CMS WordPress для компании по монтажу кондиционеров и вентиляции. SEO, реклама, брендинг.</p>
+          <a href="https://dzen.ru/a/aIG9CYmLr1s6dcBG" target="_blank" rel="noopener" class="dzen-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            Статья на Дзен
+          </a>
+        </td>
+        <td class="td-tags">
+          <div class="tags">
+            <span class="tag">WordPress</span>
+            <span class="tag">Дизайн</span>
+            <span class="tag">SEO</span>
+            <span class="tag">Брендинг</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="td-year">2024</td>
+        <td class="td-name">
+          <a href="https://splitberry.by" target="_blank" rel="noopener" class="project-name">
+            splitberry.by
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+          </a>
+          <p class="project-desc">Доработка интернет-магазина климатического оборудования. Настройка SEO, реклама в РСЯ и Google Ads, наполнение контентом.</p>
+        </td>
+        <td class="td-tags">
+          <div class="tags">
+            <span class="tag">1С-Битрикс</span>
+            <span class="tag">SEO</span>
+            <span class="tag">Google Ads</span>
+            <span class="tag">РСЯ</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="td-year">2024</td>
+        <td class="td-name">
+          <a href="https://vintes.by" target="_blank" rel="noopener" class="project-name">
+            vintes.by
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+          </a>
+          <p class="project-desc">Разработка сайта, логотипа и дизайна на CMS WordPress для компании по аренде строительной опалубки.</p>
+          <a href="https://dzen.ru/a/aH6TU0qCAA5vDidC" target="_blank" rel="noopener" class="dzen-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            Статья на Дзен
+          </a>
+        </td>
+        <td class="td-tags">
+          <div class="tags">
+            <span class="tag">WordPress</span>
+            <span class="tag">Логотип</span>
+            <span class="tag">Дизайн</span>
+            <span class="tag">SEO</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="td-year">2024</td>
+        <td class="td-name">
+          <a href="https://color4u.co" target="_blank" rel="noopener" class="project-name">
+            color4u.co
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+          </a>
+          <p class="project-desc">Разработка дизайна, логотипа и сайта детских раскрасок.</p>
+        </td>
+        <td class="td-tags">
+          <div class="tags">
+            <span class="tag">WordPress</span>
+            <span class="tag">Логотип</span>
+            <span class="tag">Дизайн</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="td-year">2024</td>
+        <td class="td-name">
+          <a href="https://icanbest.ru" target="_blank" rel="noopener" class="project-name">
+            icanbest.ru
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+          </a>
+          <p class="project-desc">Разработка дизайна, инфографики, векторных картинок, логотипа и сайта о личной эффективности на CMS WordPress.</p>
+        </td>
+        <td class="td-tags">
+          <div class="tags">
+            <span class="tag">WordPress</span>
+            <span class="tag">Инфографика</span>
+            <span class="tag">Логотип</span>
+            <span class="tag">Иллюстрации</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="td-year">2023</td>
+        <td class="td-name">
+          <a href="https://isdownstatus.com" target="_blank" rel="noopener" class="project-name">
+            isdownstatus.com
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+          </a>
+          <p class="project-desc">Разработка сайта-сервиса для проверки статуса доступности ресурсов.</p>
+        </td>
+        <td class="td-tags">
+          <div class="tags">
+            <span class="tag">Сервис</span>
+            <span class="tag">Разработка</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="td-year">2023</td>
+        <td class="td-name">
+          <a href="https://telegraminformer.com" target="_blank" rel="noopener" class="project-name">
+            telegraminformer.com
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+          </a>
+          <p class="project-desc">Разработка дизайна, логотипа и сайта сервиса по поиску Telegram-каналов.</p>
+        </td>
+        <td class="td-tags">
+          <div class="tags">
+            <span class="tag">Сервис</span>
+            <span class="tag">Логотип</span>
+            <span class="tag">Дизайн</span>
+            <span class="tag">Telegram</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="td-year">2023</td>
+        <td class="td-name">
+          <a href="https://caffeinestats.com" target="_blank" rel="noopener" class="project-name">
+            caffeinestats.com
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+          </a>
+          <p class="project-desc">Разработка дизайна, логотипа и сайта сервиса по расчёту содержания кофеина в напитках.</p>
+        </td>
+        <td class="td-tags">
+          <div class="tags">
+            <span class="tag">Сервис</span>
+            <span class="tag">Логотип</span>
+            <span class="tag">Дизайн</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="td-year">2023</td>
+        <td class="td-name">
+          <a href="https://coffeehow.co" target="_blank" rel="noopener" class="project-name">
+            coffeehow.co
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+          </a>
+          <p class="project-desc">Переработка дизайна, логотипа и разработка инфографики для сайта о кофе.</p>
+        </td>
+        <td class="td-tags">
+          <div class="tags">
+            <span class="tag">WordPress</span>
+            <span class="tag">Редизайн</span>
+            <span class="tag">Логотип</span>
+            <span class="tag">Инфографика</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="td-year">2023</td>
+        <td class="td-name">
+          <a href="https://sleepmattress.co" target="_blank" rel="noopener" class="project-name">
+            sleepmattress.co
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+          </a>
+          <p class="project-desc">Разработка инфографики для сайта на CMS WordPress.</p>
+        </td>
+        <td class="td-tags">
+          <div class="tags">
+            <span class="tag">WordPress</span>
+            <span class="tag">Инфографика</span>
+          </div>
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+<script>
+const spotlight = document.getElementById('spotlight');
+document.addEventListener('mousemove', (e) => {
+  spotlight.style.setProperty('--x', e.clientX + 'px');
+  spotlight.style.setProperty('--y', e.clientY + 'px');
+});
+</script>
+
+</body>
+</html>
