@@ -341,6 +341,16 @@ body {
   color: var(--slate);
   margin-top: 4px;
   overflow: hidden;
+  position: relative;
+  transform-origin: left top;
+  transition: transform 0.3s var(--transition), box-shadow 0.3s var(--transition), border-color 0.3s var(--transition);
+}
+
+.project-preview:hover {
+  transform: scale(2.6);
+  z-index: 3;
+  box-shadow: 0 14px 40px rgba(2, 12, 27, 0.75);
+  border-color: var(--accent);
 }
 
 .project-preview img {
