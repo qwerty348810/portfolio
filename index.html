@@ -236,6 +236,28 @@ body {
   padding-top: 4px;
 }
 
+.item-logos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 12px;
+}
+
+.item-logo {
+  display: block;
+  height: 16px;
+  width: auto;
+  max-width: 100px;
+  object-fit: contain;
+  padding: 5px 8px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 4px;
+  opacity: 0.8;
+  transition: opacity 0.2s var(--transition);
+}
+
+.experience-item:hover .item-logo { opacity: 1; }
+
 @media (max-width: 640px) {
   .experience-item, .project-item {
     grid-template-columns: 1fr;
@@ -463,7 +485,13 @@ body {
       <h3 class="section-title-mobile">Опыт работы</h3>
 
       <a href="https://clever.by" class="experience-item" target="_blank" rel="noopener">
-        <div class="item-date">2025 — сейчас</div>
+        <div class="item-date">
+          2025 — сейчас
+          <div class="item-logos">
+            <img src="/img/logos/foodpicasso.svg" alt="Foodpicasso" class="item-logo" loading="lazy">
+            <img src="/img/logos/clever.svg" alt="Clever.by" class="item-logo" loading="lazy">
+          </div>
+        </div>
         <div>
           <h4 class="item-title">
             QA / E2E-тестировщик, SEO · Foodpicasso & Clever.by
@@ -483,7 +511,12 @@ body {
       </a>
 
       <a href="#" class="experience-item" target="_blank" rel="noopener">
-        <div class="item-date">2024 — 2025</div>
+        <div class="item-date">
+          2024 — 2025
+          <div class="item-logos">
+            <img src="/img/logos/ptt.png" alt="ПромТехноТрейд" class="item-logo" loading="lazy">
+          </div>
+        </div>
         <div>
           <h4 class="item-title">
             Веб-разработчик, SEO, Дизайнер · ЧП «ПромТехноТрейд»
@@ -503,7 +536,12 @@ body {
       </a>
 
       <a href="#" class="experience-item" target="_blank" rel="noopener">
-        <div class="item-date">2020 — 2024</div>
+        <div class="item-date">
+          2020 — 2024
+          <div class="item-logos">
+            <img src="/img/logos/sfera.svg" alt="Сфера Торгового Оборудования" class="item-logo" loading="lazy">
+          </div>
+        </div>
         <div>
           <h4 class="item-title">
             Веб-разработчик · ООО «Сфера Торгового Оборудования»
@@ -523,7 +561,12 @@ body {
       </a>
 
       <a href="https://fashionandbeautystore.com" class="experience-item" target="_blank" rel="noopener">
-        <div class="item-date">2016 — 2020</div>
+        <div class="item-date">
+          2016 — 2020
+          <div class="item-logos">
+            <img src="/img/logos/fashion-beauty.png" alt="Fashion and Beauty Store" class="item-logo" loading="lazy">
+          </div>
+        </div>
         <div>
           <h4 class="item-title">
             Администратор сайта · Fashion and Beauty Store (США)
@@ -543,7 +586,12 @@ body {
       </a>
 
       <a href="#" class="experience-item" target="_blank" rel="noopener">
-        <div class="item-date">До 2020</div>
+        <div class="item-date">
+          До 2020
+          <div class="item-logos">
+            <img src="/img/logos/sfera.svg" alt="Сфера Торгового Оборудования" class="item-logo" loading="lazy">
+          </div>
+        </div>
         <div>
           <h4 class="item-title">
             Монтаж холодильного оборудования · ООО «Сфера Торгового Оборудования»
