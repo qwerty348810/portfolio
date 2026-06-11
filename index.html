@@ -253,10 +253,19 @@ body {
   background: rgba(255, 255, 255, 0.95);
   border-radius: 4px;
   opacity: 0.8;
-  transition: opacity 0.2s var(--transition);
+  position: relative;
+  transform-origin: left center;
+  transition: opacity 0.2s var(--transition), transform 0.25s var(--transition), box-shadow 0.25s var(--transition);
 }
 
 .experience-item:hover .item-logo { opacity: 1; }
+
+.item-logo:hover {
+  transform: scale(1.8);
+  opacity: 1;
+  z-index: 2;
+  box-shadow: 0 8px 24px rgba(2, 12, 27, 0.6);
+}
 
 @media (max-width: 640px) {
   .experience-item, .project-item {
