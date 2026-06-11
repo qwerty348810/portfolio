@@ -295,8 +295,13 @@ body {
   transform: translate(2px, -2px);
 }
 
-.item-title::after {
+.experience-item, .project-item { position: relative; }
+
+.experience-item::after, .project-item::after {
   content: 'подробнее';
+  position: absolute;
+  top: 28px;
+  right: 24px;
   font-family: var(--font-mono);
   font-size: 10px;
   font-weight: 500;
@@ -304,17 +309,15 @@ body {
   text-transform: uppercase;
   color: var(--accent);
   opacity: 0;
-  max-width: 0;
-  overflow: hidden;
+  transform: translateX(-6px);
+  transition: opacity 0.2s var(--transition), transform 0.2s var(--transition);
+  pointer-events: none;
   white-space: nowrap;
-  transform: translateX(-4px);
-  transition: opacity 0.2s var(--transition), max-width 0.25s var(--transition), transform 0.2s var(--transition);
 }
 
-.experience-item:hover .item-title::after,
-.project-item:hover .item-title::after {
+.experience-item:hover::after,
+.project-item:hover::after {
   opacity: 1;
-  max-width: 120px;
   transform: translateX(0);
 }
 
