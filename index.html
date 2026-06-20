@@ -217,19 +217,16 @@ body {
   color: inherit;
 }
 
+.experience-item, .project-item { cursor: default; }
+
 .experience-item:hover, .project-item:hover {
   background: rgba(17, 34, 64, 0.5);
   box-shadow: inset 0 1px 0 0 rgba(148, 163, 184, 0.1);
 }
 
-.experience-item:hover .item-title, .project-item:hover .item-title {
-  color: var(--accent);
-}
+.item-title-link:hover .item-title { color: var(--accent); }
 
-.experience-item.is-static { cursor: default; }
 .experience-item.is-static:hover { background: transparent; box-shadow: none; }
-.experience-item.is-static:hover .item-title { color: var(--slate-lightest); }
-.experience-item.is-static::after { display: none; }
 
 .item-date {
   font-family: var(--font-mono);
@@ -296,9 +293,7 @@ body {
   transition: transform 0.2s var(--transition);
 }
 
-.experience-item:hover .item-title svg, .project-item:hover .item-title svg {
-  transform: translate(2px, -2px);
-}
+.item-title-link:hover .item-title svg { transform: translate(2px, -2px); }
 
 .experience-item, .project-item { position: relative; }
 
@@ -343,8 +338,15 @@ body {
   text-decoration: none;
 }
 
-.project-item:hover .item-more { opacity: 1; transform: translateY(0); }
+.project-item:hover .item-more,
+.experience-item:hover .item-more { opacity: 1; transform: translateY(0); }
 .item-more:hover { color: var(--accent); text-decoration: underline; }
+
+.item-logo-link {
+  display: inline-flex;
+  text-decoration: none;
+  border-radius: 4px;
+}
 
 .item-company {
   font-size: 14px;
@@ -439,9 +441,6 @@ body {
   background: var(--accent-tint);
 }
 .project-cta svg { width: 10px; height: 10px; }
-
-/* Карточка-div (без клика по всей области) */
-.project-item:not(a) { cursor: default; }
 
 .item-title-link {
   color: inherit;
@@ -551,19 +550,26 @@ body {
     <section id="experience" class="section">
       <h3 class="section-title-mobile">Опыт работы</h3>
 
-      <a href="/experience/foodpicasso.html" class="experience-item">
+      <div class="experience-item">
+        <a href="/experience/foodpicasso.html" class="item-more">подробнее</a>
         <div class="item-date">
           2025 — сейчас
           <div class="item-logos">
-            <img src="/img/logos/foodpicasso.svg" alt="Foodpicasso" class="item-logo" loading="lazy">
-            <img src="/img/logos/clever.svg" alt="Clever.by" class="item-logo" loading="lazy">
+            <a href="https://foodpicasso.com" target="_blank" rel="noopener" class="item-logo-link" aria-label="Foodpicasso">
+              <img src="/img/logos/foodpicasso.svg" alt="Foodpicasso" class="item-logo" loading="lazy">
+            </a>
+            <a href="https://clever.by" target="_blank" rel="noopener" class="item-logo-link" aria-label="Clever.by">
+              <img src="/img/logos/clever.svg" alt="Clever.by" class="item-logo" loading="lazy">
+            </a>
           </div>
         </div>
         <div>
-          <h4 class="item-title">
-            QA / E2E-тестировщик, SEO · Foodpicasso & Clever.by
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
-          </h4>
+          <a href="/experience/foodpicasso.html" class="item-title-link">
+            <h4 class="item-title">
+              QA / E2E-тестировщик, SEO · Foodpicasso & Clever.by
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </h4>
+          </a>
           <p class="item-description">
             Параллельно работаю в двух продуктовых командах. Первая — QA: ручное и автоматизированное E2E-тестирование веб-приложений, панели управления и мобильных приложений; приёмочное тестирование фич с согласованием к релизу или возвратом на доработку с детальным описанием дефектов. Вторая — рост и трафик: SEO, контекстная реклама (Google Ads, Яндекс Директ), веб-аналитика по каналам через Яндекс Метрику. Нейросети — ежедневный рабочий инструмент: генерация и ревью тест-кейсов, написание E2E-сценариев, разбор логов, кластеризация семантики.
           </p>
@@ -575,20 +581,25 @@ body {
             <span class="tag">SMM</span>
           </div>
         </div>
-      </a>
+      </div>
 
-      <a href="/experience/ptt.html" class="experience-item">
+      <div class="experience-item">
+        <a href="/experience/ptt.html" class="item-more">подробнее</a>
         <div class="item-date">
           2024 — 2025
           <div class="item-logos">
-            <img src="/img/logos/ptt.png" alt="ПромТехноТрейд" class="item-logo" loading="lazy">
+            <a href="https://ptt.by" target="_blank" rel="noopener" class="item-logo-link" aria-label="ПромТехноТрейд">
+              <img src="/img/logos/ptt.png" alt="ПромТехноТрейд" class="item-logo" loading="lazy">
+            </a>
           </div>
         </div>
         <div>
-          <h4 class="item-title">
-            Веб-разработчик, SEO, Дизайнер · ЧП «ПромТехноТрейд»
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
-          </h4>
+          <a href="/experience/ptt.html" class="item-title-link">
+            <h4 class="item-title">
+              Веб-разработчик, SEO, Дизайнер · ЧП «ПромТехноТрейд»
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </h4>
+          </a>
           <p class="item-description">
             Разработка и поддержка четырёх сайтов в нише торгового и климатического оборудования. SEO-продвижение, контекстная реклама (Google Ads, РСЯ), баннеры, email-рассылки. Полный цикл — от Figma до запуска.
           </p>
@@ -600,9 +611,10 @@ body {
             <span class="tag">Google Ads</span>
           </div>
         </div>
-      </a>
+      </div>
 
-      <a href="/experience/sfera-dev.html" class="experience-item">
+      <div class="experience-item">
+        <a href="/experience/sfera-dev.html" class="item-more">подробнее</a>
         <div class="item-date">
           2020 — 2024
           <div class="item-logos">
@@ -610,10 +622,12 @@ body {
           </div>
         </div>
         <div>
-          <h4 class="item-title">
-            Веб-разработчик · ООО «Сфера Торгового Оборудования»
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
-          </h4>
+          <a href="/experience/sfera-dev.html" class="item-title-link">
+            <h4 class="item-title">
+              Веб-разработчик · ООО «Сфера Торгового Оборудования»
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </h4>
+          </a>
           <p class="item-description">
             Полный цикл разработки на WordPress: дизайн → вёрстка → установка → наполнение. Кастомные React-компоненты: умный поиск, система комментариев. Парсинг конкурентов и сбор аналитики.
           </p>
@@ -625,9 +639,10 @@ body {
             <span class="tag">Парсинг</span>
           </div>
         </div>
-      </a>
+      </div>
 
-      <a href="/experience/fashion-beauty.html" class="experience-item">
+      <div class="experience-item">
+        <a href="/experience/fashion-beauty.html" class="item-more">подробнее</a>
         <div class="item-date">
           2016 — 2020
           <div class="item-logos">
@@ -635,10 +650,12 @@ body {
           </div>
         </div>
         <div>
-          <h4 class="item-title">
-            Администратор сайта · Fashion and Beauty Store (США)
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
-          </h4>
+          <a href="/experience/fashion-beauty.html" class="item-title-link">
+            <h4 class="item-title">
+              Администратор сайта · Fashion and Beauty Store (США)
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </h4>
+          </a>
           <p class="item-description">
             Удалённая работа с американской компанией параллельно с основной. Поддержка двух e-commerce проектов: fashionandbeautystore.com на Magento и keratin.nyc на Shopify. Наполнение каталога, проверка товаров и цен, правки в коде, доработка функционала CMS, ведение соцсетей.
           </p>
@@ -650,7 +667,7 @@ body {
             <span class="tag">US client</span>
           </div>
         </div>
-      </a>
+      </div>
 
       <div class="experience-item is-static">
         <div class="item-date">
