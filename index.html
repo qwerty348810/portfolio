@@ -226,6 +226,11 @@ body {
   color: var(--accent);
 }
 
+.experience-item.is-static { cursor: default; }
+.experience-item.is-static:hover { background: transparent; box-shadow: none; }
+.experience-item.is-static:hover .item-title { color: var(--slate-lightest); }
+.experience-item.is-static::after { display: none; }
+
 .item-date {
   font-family: var(--font-mono);
   font-size: 11px;
@@ -546,7 +551,7 @@ body {
     <section id="experience" class="section">
       <h3 class="section-title-mobile">Опыт работы</h3>
 
-      <a href="https://clever.by" class="experience-item" target="_blank" rel="noopener">
+      <a href="/experience/foodpicasso.html" class="experience-item">
         <div class="item-date">
           2025 — сейчас
           <div class="item-logos">
@@ -572,7 +577,7 @@ body {
         </div>
       </a>
 
-      <a href="#" class="experience-item" target="_blank" rel="noopener">
+      <a href="/experience/ptt.html" class="experience-item">
         <div class="item-date">
           2024 — 2025
           <div class="item-logos">
@@ -597,7 +602,7 @@ body {
         </div>
       </a>
 
-      <a href="#" class="experience-item" target="_blank" rel="noopener">
+      <a href="/experience/sfera-dev.html" class="experience-item">
         <div class="item-date">
           2020 — 2024
           <div class="item-logos">
@@ -622,7 +627,7 @@ body {
         </div>
       </a>
 
-      <a href="#" class="experience-item" target="_blank" rel="noopener">
+      <a href="/experience/fashion-beauty.html" class="experience-item">
         <div class="item-date">
           2016 — 2020
           <div class="item-logos">
@@ -647,7 +652,7 @@ body {
         </div>
       </a>
 
-      <a href="#" class="experience-item" target="_blank" rel="noopener">
+      <div class="experience-item is-static">
         <div class="item-date">
           До 2020
           <div class="item-logos">
@@ -657,7 +662,6 @@ body {
         <div>
           <h4 class="item-title">
             Монтаж холодильного оборудования · ООО «Сфера Торгового Оборудования»
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
           </h4>
           <p class="item-description">
             Полевой опыт: монтаж и настройка торгового и холодильного оборудования. База, на которой строится сегодняшнее понимание индустрии.
@@ -667,7 +671,7 @@ body {
             <span class="tag">Полевой опыт</span>
           </div>
         </div>
-      </a>
+      </div>
 
       <a href="#" class="view-all">
         Полное резюме
