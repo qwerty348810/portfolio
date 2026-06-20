@@ -297,7 +297,7 @@ body {
 
 .experience-item, .project-item { position: relative; }
 
-.experience-item::after, .project-item::after {
+.experience-item::after {
   content: 'подробнее';
   position: absolute;
   top: 41px;
@@ -317,11 +317,29 @@ body {
   white-space: nowrap;
 }
 
-.experience-item:hover::after,
-.project-item:hover::after {
-  opacity: 1;
-  transform: translateY(0);
+.experience-item:hover::after { opacity: 1; transform: translateY(0); }
+
+.item-more {
+  position: absolute;
+  top: 41px;
+  right: 8px;
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  font-family: var(--font-mono);
+  font-size: 8px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--accent);
+  opacity: 0;
+  transform: translateY(-6px);
+  transition: opacity 0.2s var(--transition), transform 0.2s var(--transition);
+  white-space: nowrap;
+  text-decoration: none;
 }
+
+.project-item:hover .item-more { opacity: 1; transform: translateY(0); }
+.item-more:hover { color: var(--accent); text-decoration: underline; }
 
 .item-company {
   font-size: 14px;
@@ -662,6 +680,7 @@ body {
       <h3 class="section-title-mobile">Избранные проекты</h3>
 
       <div class="project-item">
+        <a href="/projects/ptt.html" class="item-more">подробнее</a>
         <div>
           <div class="project-preview">
             <img src="/img/projects/ptt-preview.webp" alt="ПромТехноТрейд — превью">
@@ -691,6 +710,7 @@ body {
       </div>
 
       <div class="project-item">
+        <a href="/projects/splitberry.html" class="item-more">подробнее</a>
         <div>
           <div class="project-preview">
             <img src="/img/projects/splitberry-preview.webp" alt="Splitberry — превью">
@@ -719,6 +739,7 @@ body {
       </div>
 
       <div class="project-item">
+        <a href="/projects/vintes.html" class="item-more">подробнее</a>
         <div>
           <div class="project-preview">
             <img src="/img/projects/vintes-preview.webp" alt="Vintes — превью">
@@ -749,6 +770,7 @@ body {
       </div>
 
       <div class="project-item">
+        <a href="/projects/ulov.html" class="item-more">подробнее</a>
         <div>
           <div class="project-preview">
             <img src="/img/projects/ulov-preview.webp" alt="Ulov — превью">
