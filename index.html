@@ -348,6 +348,39 @@ body {
   border-radius: 4px;
 }
 
+.item-site-links {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 14px;
+  align-items: flex-start;
+}
+
+.item-site-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: var(--accent-tint);
+  border: 1px solid rgba(100, 255, 218, 0.3);
+  border-radius: 4px;
+  text-decoration: none;
+  transition: all 0.2s var(--transition);
+}
+
+.item-site-btn:hover {
+  background: rgba(100, 255, 218, 0.2);
+  border-color: var(--accent);
+}
+
+.item-site-btn svg { width: 10px; height: 10px; }
+
 .item-company {
   font-size: 14px;
   color: var(--slate-light);
@@ -562,6 +595,16 @@ body {
               <img src="/img/logos/clever.svg" alt="Clever.by" class="item-logo" loading="lazy">
             </a>
           </div>
+          <div class="item-site-links">
+            <a href="https://foodpicasso.com" target="_blank" rel="noopener" class="item-site-btn">
+              foodpicasso.com
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </a>
+            <a href="https://clever.by" target="_blank" rel="noopener" class="item-site-btn">
+              clever.by
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </a>
+          </div>
         </div>
         <div>
           <a href="/experience/foodpicasso.html" class="item-title-link">
@@ -590,6 +633,12 @@ body {
           <div class="item-logos">
             <a href="https://ptt.by" target="_blank" rel="noopener" class="item-logo-link" aria-label="ПромТехноТрейд">
               <img src="/img/logos/ptt.png" alt="ПромТехноТрейд" class="item-logo" loading="lazy">
+            </a>
+          </div>
+          <div class="item-site-links">
+            <a href="https://ptt.by" target="_blank" rel="noopener" class="item-site-btn">
+              ptt.by
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
             </a>
           </div>
         </div>
