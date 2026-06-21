@@ -229,7 +229,7 @@ body {
 }
 .design-grid figure {
   margin: 0;
-  background: var(--bg-light);
+  background: #f1f3f8;
   border: 1px solid var(--bg-lightest);
   border-radius: 6px;
   overflow: hidden;
@@ -241,11 +241,12 @@ body {
 }
 .design-grid img {
   width: 100%;
-  height: 180px;
-  object-fit: cover;
+  height: 200px;
+  object-fit: contain;
   object-position: center;
   display: block;
-  background: #2a2a2a;
+  padding: 8px;
+  background: #f1f3f8;
 }
 .design-grid figcaption {
   font-family: var(--font-mono);
@@ -255,9 +256,11 @@ body {
   color: var(--slate);
   padding: 8px 12px 10px;
   border-top: 1px solid var(--bg-lightest);
+  background: var(--bg-light);
 }
 .design-grid figure.wide { grid-column: span 2; }
-.design-grid figure.wide img { height: 220px; object-fit: cover; }
+.design-grid figure.wide img { height: 240px; }
+.design-grid figure.tall img { height: 320px; }
 
 @media (max-width: 560px) {
   .design-grid { grid-template-columns: 1fr; }
@@ -347,7 +350,7 @@ body {
         <img src="/img/projects/ulov-design-figma.webp" alt="Ulov — рабочая Figma-доска: сертификаты, ценники, акционные карточки" loading="lazy">
         <figcaption>Figma-доска: сертификаты, ценники, акции</figcaption>
       </figure>
-      <figure>
+      <figure class="tall">
         <img src="/img/projects/ulov-design-business-cards.webp" alt="Ulov — визитки магазина «Удильщик» с QR-кодами на мессенджеры" loading="lazy">
         <figcaption>Визитки магазина</figcaption>
       </figure>
