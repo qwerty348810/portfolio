@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ulov — Дмитрий Яковлев</title>
-<meta name="description" content="Кейс ulov.by: парсинг и пакетная загрузка 15 000+ товаров от 10+ поставщиков в 1С, интеграция 1С ↔ 1С-Битрикс и Telegram-уведомления о заказах.">
+<meta name="description" content="Кейс ulov.by: парсинг и пакетная загрузка 15 000+ товаров от 10+ поставщиков в 1С, интеграция 1С ↔ 1С-Битрикс, дизайн магазина (иконки, баннеры, визитки, вывески) и Telegram-уведомления о заказах.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -219,6 +219,50 @@ body {
 }
 
 .proj-nav a:hover .proj-nav-title { color: var(--accent); }
+
+/* Галерея дизайна */
+.design-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-top: 20px;
+}
+.design-grid figure {
+  margin: 0;
+  background: var(--bg-light);
+  border: 1px solid var(--bg-lightest);
+  border-radius: 6px;
+  overflow: hidden;
+  transition: border-color 0.2s var(--transition), transform 0.2s var(--transition);
+}
+.design-grid figure:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+.design-grid img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  background: #2a2a2a;
+}
+.design-grid figcaption {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--slate);
+  padding: 8px 12px 10px;
+  border-top: 1px solid var(--bg-lightest);
+}
+.design-grid figure.wide { grid-column: span 2; }
+.design-grid figure.wide img { height: 220px; object-fit: cover; }
+
+@media (max-width: 560px) {
+  .design-grid { grid-template-columns: 1fr; }
+  .design-grid figure.wide { grid-column: auto; }
+}
 </style>
 </head>
 <body>
@@ -254,6 +298,7 @@ body {
     <span class="tag">1С ↔ 1С-Битрикс</span>
     <span class="tag">Парсинг</span>
     <span class="tag">15 000+ SKU</span>
+    <span class="tag">Дизайн / Figma</span>
     <span class="tag">Telegram API</span>
   </div>
 
@@ -278,6 +323,39 @@ body {
     <p>
       <strong>Telegram-бот для заказов.</strong> Как только покупатель оформляет заказ, в закрытый канал продавцов приходит сообщение: номер заказа, имя клиента, состав, сумма. Менеджеры реагируют за минуты, а не за часы, и не привязаны к открытой админке.
     </p>
+  </div>
+
+  <div class="proj-section">
+    <p class="proj-section-title">Дизайн</p>
+    <p>
+      Весь визуал магазина — <strong>лично, в Figma</strong>: фирменные иконки категорий и подкатегорий каталога, баннеры для главной и акций, подарочные сертификаты номиналом 50 / 100 / 150 / 200 руб., ценники и акционные карточки, корпоративные визитки с QR-кодами на мессенджеры. Для офлайн-точки — наружная реклама и вывески («Мы открылись», сезонные скидки).
+    </p>
+    <div class="design-grid">
+      <figure>
+        <img src="/img/projects/ulov-design-categories.webp" alt="Ulov — иконки категорий: летняя и зимняя рыбалка, одежда, туризм" loading="lazy">
+        <figcaption>Иконки категорий каталога</figcaption>
+      </figure>
+      <figure>
+        <img src="/img/projects/ulov-design-menu.webp" alt="Ulov — выпадающее меню каталога с иконками подкатегорий" loading="lazy">
+        <figcaption>Иконки подкатегорий + логотип</figcaption>
+      </figure>
+      <figure class="wide">
+        <img src="/img/projects/ulov-design-banner-gift.webp" alt="Ulov — баннер «Лучший подарок» с подарочными сертификатами" loading="lazy">
+        <figcaption>Баннер для главной — подарочные сертификаты</figcaption>
+      </figure>
+      <figure class="wide">
+        <img src="/img/projects/ulov-design-figma.webp" alt="Ulov — рабочая Figma-доска: сертификаты, ценники, акционные карточки" loading="lazy">
+        <figcaption>Figma-доска: сертификаты, ценники, акции</figcaption>
+      </figure>
+      <figure>
+        <img src="/img/projects/ulov-design-business-cards.webp" alt="Ulov — визитки магазина «Удильщик» с QR-кодами на мессенджеры" loading="lazy">
+        <figcaption>Визитки магазина</figcaption>
+      </figure>
+      <figure>
+        <img src="/img/projects/ulov-design-outdoor.webp" alt="Ulov — наружная реклама и вывески офлайн-магазина" loading="lazy">
+        <figcaption>Наружная реклама и вывески</figcaption>
+      </figure>
+    </div>
   </div>
 
   <div class="proj-section">
