@@ -517,6 +517,24 @@ body {
   transition: color 0.2s var(--transition);
 }
 .inline-link:hover { color: var(--accent); border-color: var(--accent); }
+
+/* Ссылка на PDF резюме */
+.resume-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 24px;
+  color: var(--slate-lightest);
+  font-weight: 500;
+  font-size: 15px;
+  text-decoration: none;
+  padding-bottom: 2px;
+  border-bottom: 1px solid transparent;
+  transition: color 0.2s var(--transition), border-color 0.2s var(--transition);
+}
+.resume-link:hover { color: var(--accent); border-color: var(--accent); }
+.resume-link svg { width: 14px; height: 14px; transition: transform 0.2s var(--transition); }
+.resume-link:hover svg { transform: translate(2px, -2px); }
 </style>
 </head>
 <body>
@@ -578,6 +596,11 @@ body {
       <p>
         В свободное время пишу разборы кейсов на <a href="https://dzen.ru/suite/5ae9706e-596d-4d97-866e-e5df78ecae60" class="inline-link" rel="noopener">Dzen</a> — про разработку, оптимизацию и инструменты.
       </p>
+
+      <a href="/resume.pdf" target="_blank" rel="noopener" download="Резюме_Яковлев_Дмитрий.pdf" class="resume-link">
+        Полное резюме (PDF)
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+      </a>
     </section>
 
     <!-- EXPERIENCE -->
@@ -743,8 +766,8 @@ body {
       -->
 
 
-      <a href="#" class="view-all">
-        Полное резюме
+      <a href="/resume.pdf" target="_blank" rel="noopener" download="Резюме_Яковлев_Дмитрий.pdf" class="view-all">
+        Полное резюме (PDF)
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
       </a>
     </section>
