@@ -216,6 +216,37 @@ body {
   font-weight: 500;
 }
 
+.case-card {
+  margin-top: 24px;
+  padding: 24px;
+  background: rgba(100, 255, 218, 0.04);
+  border-left: 2px solid var(--accent);
+  border-radius: 4px;
+}
+
+.case-card-title {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  color: var(--slate-lightest);
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+
+.case-card p {
+  color: var(--slate);
+  line-height: 1.65;
+  margin-bottom: 10px;
+}
+
+.case-card p:last-child { margin-bottom: 0; }
+
+.case-card strong {
+  color: var(--slate-lightest);
+  font-weight: 500;
+}
+
 .exp-nav {
   border-top: 1px solid var(--bg-lightest);
   padding-top: 48px;
@@ -318,6 +349,13 @@ body {
       <li>Приёмочное тестирование новых фич: согласование к релизу или возврат на доработку с воспроизводимым описанием дефекта.</li>
       <li>Предложения по доработкам функционала на основе наблюдений из тестов и пользовательских сценариев.</li>
     </ul>
+
+    <div class="case-card">
+      <p class="case-card-title">Кейс: iOS 26 Liquid Glass — диагностика и фикс размытия иконки</p>
+      <p><strong>Контекст.</strong> После выхода iOS 26 иконка приложения (Expo/EAS-сборка) стала размытой на устройствах и в сторах — Liquid Glass применяет к иконкам объёмный эффект, ломающий плоский двухцветный дизайн.</p>
+      <p><strong>Что сделал.</strong> Локализовал причину серией контролируемых тестов, изолируя переменные (форма, текстура краёв, контраст, цветовая пара), со сборкой в <strong>TestFlight</strong> на каждой итерации. Отсёк ложные гипотезы (альфа-канал, качество PNG) проверкой. Нашёл фикс — корректировка цветовой пары убрала артефакт без перерисовки иконки. Оформил чек-лист для дизайнеров по подготовке иконок под iOS 26.</p>
+      <p><strong>Результат.</strong> Иконка в релизе отображается чётко. Зафиксировал, что это временный workaround; устойчивое решение — миграция на многослойные иконки через <strong>Icon Composer</strong>.</p>
+    </div>
   </div>
 
   <div class="exp-section">
