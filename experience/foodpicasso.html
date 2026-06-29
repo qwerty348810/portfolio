@@ -294,8 +294,10 @@ body {
     <span class="tag">Node.js</span>
     <span class="tag">Python</span>
     <span class="tag">Google Ads</span>
+    <span class="tag">Google Apps Script</span>
     <span class="tag">Яндекс Директ</span>
     <span class="tag">Яндекс Метрика</span>
+    <span class="tag">Telegram Bot API</span>
     <span class="tag">SEO</span>
     <span class="tag">AI / LLM</span>
   </div>
@@ -308,7 +310,7 @@ body {
   </div>
 
   <div class="exp-section">
-    <p class="exp-section-title">QA / E2E-тестирование</p>
+    <p class="exp-section-title">Первое направление — QA / E2E-тестирование</p>
     <ul class="tasks-list">
       <li>Ручное и автоматизированное E2E-тестирование <strong>веб-приложений, панелей управления и мобильных приложений</strong>.</li>
       <li>Автоматизация на <strong>Playwright (TypeScript)</strong>, тестирование REST API, прогон в CI на GitHub Actions.</li>
@@ -319,29 +321,14 @@ body {
   </div>
 
   <div class="exp-section">
-    <p class="exp-section-title">Автоматизация рекламных систем (Node.js, Python)</p>
+    <p class="exp-section-title">Второе направление — Автоматизация и интеграции (Node.js, Python)</p>
     <ul class="tasks-list">
-      <li>Построил пайплайн автогенерации контекстной рекламы: <strong>Node.js-сервис</strong> собирает данные новых заведений, заполненные менеджерами → нормализует их в Google Sheets как слой конфигурации → скрипты автоматически создают кампании, группы и объявления.</li>
-      <li><strong>Google Ads</strong> — генерация через Google Ads Scripts с подхватом данных из Google Sheets; <strong>Яндекс Директ</strong> — аналогичный пайплайн через Yandex Direct API на <strong>Python</strong>.</li>
+      <li>Построил пайплайн автогенерации контекстной рекламы: <strong>Node.js-сервис</strong> собирает данные новых заведений, заполненные менеджерами → нормализует их в <strong>Google Sheets</strong> → <strong>Google Ads Scripts</strong> автоматически создают кампании, группы и объявления. Промежуточный слой в Google Sheets — <strong>no-code интерфейс для маркетолога</strong>: он ревьюит и правит заголовки, описания и параметры объявлений в привычной таблице, и только подтверждённый контент уходит в аккаунт.</li>
+      <li>Платформы: <strong>Google Ads</strong> — через Google Ads Scripts; <strong>Яндекс Директ</strong> — аналогичный пайплайн через <strong>Yandex Direct API</strong> на <strong>Python</strong>.</li>
+      <li>Автоматизация управления бюджетами: мониторинг остатка по аккаунтам <strong>Google Ads и Яндекс Директ</strong> + корректировка дневных бюджетов и ставок (за клик / за конверсию) — <strong>массово по всем кампаниям аккаунта</strong>, без ручной правки по каждой. На стороне Google Ads — через Google Ads Scripts, на стороне Директа — через Direct API.</li>
+      <li><strong>Мониторинг и алертинг в Telegram</strong> (Bot API): автопроверка объявлений на битые ссылки (контроль HTTP-статусов посадочных), уведомления о подходящем к концу бюджете аккаунта, еженедельный отчёт по отключению неэффективных групп и объявлений.</li>
       <li>Миграция рекламного аккаунта между платформами: автоматический перенос <strong>более 1000 кампаний, 2500 групп и 3000 объявлений</strong> из Google Ads в Яндекс Директ.</li>
-    </ul>
-  </div>
-
-  <div class="exp-section">
-    <p class="exp-section-title">Ведение рекламы и аналитика</p>
-    <ul class="tasks-list">
-      <li>Ведение рекламных аккаунтов <strong>Google Ads и Яндекс Директ</strong> для Foodpicasso<!-- и Clever.by -->.</li>
-      <li>Управление <strong>Яндекс Бизнес</strong>-карточками компаний.</li>
-      <li>Отчётность по трафику и конверсиям в <strong>Яндекс Метрике</strong>: переходы, источники, поведение пользователей.</li>
-    </ul>
-  </div>
-
-  <div class="exp-section">
-    <p class="exp-section-title">SEO и производительность</p>
-    <ul class="tasks-list">
-      <li>SEO-продвижение сайта Foodpicasso<!-- и Clever.by -->.</li>
-      <li>Оптимизация показателей <strong>PageSpeed Insights</strong> и Core Web Vitals.</li>
-      <li>Технический аудит и работа с метриками скорости загрузки.</li>
+      <li>Отчётность по трафику и конверсиям в <strong>Яндекс Метрике</strong>; оптимизация скорости загрузки сайтов: сжатие и конвертация изображений в WebP, lazy-load, отложенная загрузка скриптов, минификация, кэширование — рост оценок <strong>PageSpeed Insights</strong>.</li>
     </ul>
   </div>
 
