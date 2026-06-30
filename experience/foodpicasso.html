@@ -228,6 +228,13 @@ body {
   border-left: 2px solid var(--accent);
   border-radius: 4px;
 }
+.case-card__qa {
+  margin-top: 0;
+  padding: 24px;
+  background: rgba(100, 255, 218, 0.04);
+  border-left: 2px solid var(--accent);
+  border-radius: 4px;
+}
 
 .case-card-title {
   font-family: var(--font-mono);
@@ -239,7 +246,7 @@ body {
   line-height: 1.5;
 }
 
-.case-card p {
+.case-card p, .case-card__qa p{
   color: var(--slate);
   line-height: 1.65;
   margin-bottom: 10px;
@@ -247,7 +254,7 @@ body {
 
 .case-card p:last-child { margin-bottom: 0; }
 
-.case-card strong {
+.case-card strong, .case-card__qa strong {
   color: var(--slate-lightest);
   font-weight: 500;
 }
@@ -349,7 +356,7 @@ body {
     <p class="exp-section-title">Первое направление — QA / E2E-тестирование</p>
     <ul class="tasks-list">
       <li>Ручное и автоматизированное E2E-тестирование <strong>веб-приложений, панелей управления и мобильных приложений</strong>.</li>
-      <li><div class="case-card"><strong>Security-тестирование (негативные сценарии, инъекции)</strong>: обнаружил <strong>stored XSS</strong> — в полях ввода и, как самое опасное, через <strong>>payload пуш-уведомления</strong>, который небезопасно рендерился на клиентах и ронял приложение у всех открывших пуш; нашёл SQL-инъекции — необработанный ввод долетал до запроса и ломал его. 
+      <li><div class="case-card__qa"><strong>Security-тестирование (негативные сценарии, инъекции)</strong>: обнаружил <strong>stored XSS</strong> — в полях ввода и, как самое опасное, через <strong>>payload пуш-уведомления</strong>, который небезопасно рендерился на клиентах и ронял приложение у всех открывших пуш; нашёл SQL-инъекции — необработанный ввод долетал до запроса и ломал его. 
       Локализовал, зарепортил, передал на фикс.</div></li>
       <li>Автоматизация на <strong>Playwright (TypeScript)</strong>, тестирование REST API, прогон в CI на GitHub Actions.</li>
       <li>Тест-дизайн, тест-кейсы, чек-листы, баг-репорты; ведение дефектов в <strong>YouTrack</strong>.</li>
