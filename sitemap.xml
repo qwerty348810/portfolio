@@ -37,6 +37,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://dmitryyakovlev.by/projects/zenair.html</loc>
+    <lastmod>2026-10-02</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://dmitryyakovlev.by/projects/ptt.html</loc>
     <lastmod>2026-06-30</lastmod>
     <changefreq>yearly</changefreq>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ZenAir — Дмитрий Яковлев</title>
+<meta name="description" content="ZenAir — собственный интернет-магазин кондиционеров: кастомная тема WordPress, каталог WooCommerce, фильтры, обзоры и помощник по подбору модели.">
+<link rel="icon" href="/img/icons/favicon.ico">
+<link rel="canonical" href="https://dmitryyakovlev.by/projects/zenair.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Дмитрий Яковлев">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:title" content="ZenAir — Дмитрий Яковлев">
+<meta property="og:description" content="Собственный интернет-магазин кондиционеров на WordPress и WooCommerce с интерактивным подбором модели.">
+<meta property="og:url" content="https://dmitryyakovlev.by/projects/zenair.html">
+<meta property="og:image" content="https://dmitryyakovlev.by/img/projects/zenair-preview.jpg">
+<meta property="og:image:width" content="489">
+<meta property="og:image:height" content="259">
+<meta property="og:image:alt" content="Главная страница ZenAir с помощником по подбору кондиционера">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ZenAir — Дмитрий Яковлев">
+<meta name="twitter:description" content="Кастомный интернет-магазин кондиционеров с каталогом, обзорами и подбором модели.">
+<meta name="twitter:image" content="https://dmitryyakovlev.by/img/projects/zenair-preview.jpg">
+<style>
+@font-face { font-family: 'Inter'; font-style: normal; font-weight: 300 700; font-display: swap; src: url('/fonts/inter-cyrillic.woff2') format('woff2'); unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116; }
+@font-face { font-family: 'Inter'; font-style: normal; font-weight: 300 700; font-display: swap; src: url('/fonts/inter-latin.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'JetBrains Mono'; font-style: normal; font-weight: 400 500; font-display: swap; src: url('/fonts/jetbrains-mono-cyrillic.woff2') format('woff2'); unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116; }
+@font-face { font-family: 'JetBrains Mono'; font-style: normal; font-weight: 400 500; font-display: swap; src: url('/fonts/jetbrains-mono-latin.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+:root { --bg:#0a192f; --panel:#112240; --border:#233554; --slate:#8892b0; --light:#a8b2d1; --heading:#ccd6f6; --accent:#64ffda; --tint:rgba(100,255,218,.1); }
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { margin:0; background:var(--bg); color:var(--slate); font:16px/1.7 'Inter',sans-serif; -webkit-font-smoothing:antialiased; }
+.spotlight { position:fixed; inset:0; pointer-events:none; background:radial-gradient(600px at var(--x,50%) var(--y,50%),rgba(29,78,216,.15),transparent 80%); }
+.page { position:relative; max-width:720px; margin:auto; padding:64px 24px 120px; }
+a { color:inherit; }
+.back { display:inline-flex; align-items:center; gap:8px; margin-bottom:64px; text-decoration:none; text-transform:uppercase; letter-spacing:.1em; font:500 12px 'JetBrains Mono',monospace; }
+.back:hover,.proj-nav a:hover .proj-nav-title { color:var(--accent); }
+.back svg { width:16px; height:16px; }
+.proj-year,.proj-section-title,.proj-nav-label { color:var(--accent); font:500 11px 'JetBrains Mono',monospace; letter-spacing:.15em; text-transform:uppercase; }
+.proj-year { margin:0 0 12px; }
+.proj-title { color:var(--heading); font-size:clamp(32px,6vw,48px); letter-spacing:-.02em; line-height:1.1; margin:0 0 8px; }
+.proj-subtitle { color:var(--light); font-size:18px; margin:0 0 32px; }
+.proj-links { display:flex; flex-wrap:wrap; gap:16px; margin-bottom:48px; }
+.btn { display:inline-flex; align-items:center; gap:8px; padding:10px 20px; border:1px solid rgba(100,255,218,.3); border-radius:4px; background:var(--tint); color:var(--accent); text-decoration:none; text-transform:uppercase; letter-spacing:.1em; font:500 12px 'JetBrains Mono',monospace; }
+.btn:hover { background:rgba(100,255,218,.2); border-color:var(--accent); }
+.btn svg { width:13px; height:13px; }
+.proj-preview { display:block; margin:0 0 40px; border:1px solid var(--border); border-radius:8px; background:var(--panel); overflow:hidden; }
+.proj-preview img { display:block; width:100%; height:auto; }
+.tags { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:56px; }
+.tag { padding:4px 10px; border-radius:999px; background:var(--tint); color:var(--accent); font:500 11px 'JetBrains Mono',monospace; }
+.proj-section { margin-bottom:48px; }
+.proj-section-title { margin:0 0 16px; }
+.proj-section p { margin:0 0 12px; }
+.proj-section strong { color:var(--heading); font-weight:500; }
+.proj-nav { display:flex; justify-content:space-between; gap:24px; padding-top:48px; margin-top:80px; border-top:1px solid var(--border); }
+.proj-nav a { display:flex; flex-direction:column; gap:4px; text-decoration:none; }
+.proj-nav a:last-child { align-items:flex-end; }
+.proj-nav-label { color:var(--slate); font-size:10px; }
+.proj-nav-title { color:var(--heading); font-size:15px; font-weight:500; }
+@media (max-width:540px) { .page { padding-top:40px; } .back { margin-bottom:48px; } }
+</style>
+</head>
+<body>
+<div class="spotlight" id="spotlight"></div>
+<main class="page">
+  <a href="/" class="back">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+    Дмитрий Яковлев
+  </a>
+
+  <p class="proj-year">2026 · Собственный проект</p>
+  <h1 class="proj-title">ZenAir</h1>
+  <p class="proj-subtitle">Подбор и продажа кондиционеров</p>
+
+  <div class="proj-links">
+    <a href="https://zenair.by/" target="_blank" rel="sponsored noopener" class="btn">
+      Открыть сайт
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+    </a>
+  </div>
+
+  <div class="proj-preview">
+    <img src="/img/projects/zenair-preview.jpg" alt="Главная страница ZenAir: каталог и помощник по подбору кондиционера" width="489" height="259">
+  </div>
+
+  <div class="tags">
+    <span class="tag">WordPress</span>
+    <span class="tag">WooCommerce</span>
+    <span class="tag">PHP</span>
+    <span class="tag">Квиз</span>
+    <span class="tag">SEO</span>
+  </div>
+
+  <section class="proj-section">
+    <h2 class="proj-section-title">Задача</h2>
+    <p>Выбор кондиционера часто сводится к длинному списку моделей и рекламным обещаниям. Я хотел сделать магазин, где покупатель может <strong>быстро подобрать технику под помещение</strong> и разобраться в характеристиках перед покупкой.</p>
+  </section>
+
+  <section class="proj-section">
+    <h2 class="proj-section-title">Решение</h2>
+    <p>Разработал <strong>кастомную тему WordPress</strong> и каталог на WooCommerce: карточки товаров, страницы брендов, фильтры по цене и характеристикам. Интерфейс адаптирован для телефона и компьютера.</p>
+    <p>На главной разместил <strong>«Помощник ZenAir»</strong>. Первый вопрос виден сразу; далее покупатель отвечает ещё на три и получает подборку подходящих моделей из каталога. Рядом с товарами публикуются обзоры и материалы о выборе климатической техники.</p>
+    <p>Подготовил структуру страниц для поиска: метаданные, канонические адреса, карту сайта и разметку для информационных материалов.</p>
+  </section>
+
+  <section class="proj-section">
+    <h2 class="proj-section-title">Результат</h2>
+    <p>ZenAir объединяет <strong>магазин, материалы о кондиционерах и подбор по потребностям покупателя</strong> в одном интерфейсе. Проект продолжаю развивать: обновляю каталог, контент и сценарии выбора.</p>
+  </section>
+
+  <nav class="proj-nav" aria-label="Другие проекты">
+    <a href="/projects/ulov.html"><span class="proj-nav-label">← Предыдущий</span><span class="proj-nav-title">Ulov</span></a>
+    <a href="/projects/ptt.html"><span class="proj-nav-label">Следующий →</span><span class="proj-nav-title">ПромТехноТрейд</span></a>
+  </nav>
+</main>
+<script>
+const spotlight = document.getElementById('spotlight');
+document.addEventListener('mousemove', (e) => {
+  spotlight.style.setProperty('--x', e.clientX + 'px');
+  spotlight.style.setProperty('--y', e.clientY + 'px');
+});
+</script>
+</body>
+</html>
