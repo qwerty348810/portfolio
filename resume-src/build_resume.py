@@ -81,7 +81,7 @@ for text in DATA['experience'][0]['additional']:
     bullet(text)
 
 story.append(PageBreak())
-add('Дмитрий Яковлев · QA / E2E-инженер', 'job')
+add(escape(DATA['name']+' · '+DATA['title']), 'job')
 section('ПРЕДЫДУЩИЙ ОПЫТ')
 for item in DATA['experience'][1:]:
     job(item)
@@ -106,12 +106,12 @@ def footer(canvas, doc):
     canvas.line(40,31,A4[0]-40,31)
     canvas.setFont('Resume',8)
     canvas.setFillColor(MUTED)
-    canvas.drawString(40,18,'Дмитрий Яковлев · QA / E2E-инженер')
+    canvas.drawString(40,18,DATA['name']+' · '+DATA['title'])
     canvas.drawRightString(A4[0]-40,18,str(doc.page))
     canvas.restoreState()
 
 doc=SimpleDocTemplate(str(ROOT/'resume.pdf'), pagesize=A4, rightMargin=40,leftMargin=40,topMargin=35,bottomMargin=43,
-    title='Дмитрий Яковлев — QA / E2E-инженер',author=DATA['name'],subject='Автоматизация тестирования, Playwright, TypeScript, REST API',
+    title=DATA['name']+' — '+DATA['title'],author=DATA['name'],subject='Автоматизация тестирования, Playwright, TypeScript, REST API',
     pageCompression=1)
 doc.build(story,onFirstPage=footer,onLaterPages=footer)
 shutil.copy2(ROOT/'resume.pdf',EXPORT/'Резюме_hh_Дмитрий_Яковлев.pdf')
