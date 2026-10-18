@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ZenAir App — разработка и тестирование приложения — Дмитрий Яковлев</title>
+<meta name="description" content="React и TypeScript: коммерческие предложения, монтажные заявки, ролевой доступ, API и автоматизированные проверки на Playwright.">
+<link rel="icon" href="/img/icons/favicon.ico">
+<link rel="canonical" href="https://dmitryyakovlev.by/projects/zenair-app.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Дмитрий Яковлев">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:title" content="ZenAir App — разработка и тестирование приложения — Дмитрий Яковлев">
+<meta property="og:description" content="React и TypeScript: коммерческие предложения, монтажные заявки, ролевой доступ, API и автоматизированные проверки на Playwright.">
+<meta property="og:url" content="https://dmitryyakovlev.by/projects/zenair-app.html">
+<meta property="og:image" content="https://dmitryyakovlev.by/img/projects/zenair-app-cover.jpg">
+<meta property="og:image:width" content="1600">
+<meta property="og:image:height" content="1000">
+<meta property="og:image:alt" content="ZenAir App — разработка и тестирование приложения">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ZenAir App — разработка и тестирование приложения — Дмитрий Яковлев">
+<meta name="twitter:description" content="React и TypeScript: коммерческие предложения, монтажные заявки, ролевой доступ, API и автоматизированные проверки на Playwright.">
+<meta name="twitter:image" content="https://dmitryyakovlev.by/img/projects/zenair-app-cover.jpg">
+<style>
+@font-face { font-family: 'Inter'; font-style: normal; font-weight: 300 700; font-display: swap; src: url('/fonts/inter-cyrillic.woff2') format('woff2'); unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116; }
+@font-face { font-family: 'Inter'; font-style: normal; font-weight: 300 700; font-display: swap; src: url('/fonts/inter-latin.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'JetBrains Mono'; font-style: normal; font-weight: 400 500; font-display: swap; src: url('/fonts/jetbrains-mono-cyrillic.woff2') format('woff2'); unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116; }
+@font-face { font-family: 'JetBrains Mono'; font-style: normal; font-weight: 400 500; font-display: swap; src: url('/fonts/jetbrains-mono-latin.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+:root { --bg:#0a192f; --panel:#112240; --border:#233554; --slate:#8892b0; --light:#a8b2d1; --heading:#ccd6f6; --accent:#64ffda; --tint:rgba(100,255,218,.1); }
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { margin:0; background:var(--bg); color:var(--slate); font:16px/1.7 'Inter',sans-serif; -webkit-font-smoothing:antialiased; }
+.spotlight { position:fixed; inset:0; pointer-events:none; background:radial-gradient(600px at var(--x,50%) var(--y,50%),rgba(29,78,216,.15),transparent 80%); }
+.page { position:relative; max-width:720px; margin:auto; padding:64px 24px 120px; }
+a { color:inherit; }
+.back { display:inline-flex; align-items:center; gap:8px; margin-bottom:64px; text-decoration:none; text-transform:uppercase; letter-spacing:.1em; font:500 12px 'JetBrains Mono',monospace; }
+.back:hover,.proj-nav a:hover .proj-nav-title { color:var(--accent); }
+.back svg { width:16px; height:16px; }
+.proj-year,.proj-section-title,.proj-nav-label { color:var(--accent); font:500 11px 'JetBrains Mono',monospace; letter-spacing:.15em; text-transform:uppercase; }
+.proj-year { margin:0 0 12px; }
+.proj-title { color:var(--heading); font-size:clamp(32px,6vw,48px); letter-spacing:-.02em; line-height:1.1; margin:0 0 8px; }
+.proj-subtitle { color:var(--light); font-size:18px; margin:0 0 32px; }
+.proj-links { display:flex; flex-wrap:wrap; gap:16px; margin-bottom:48px; }
+.btn { display:inline-flex; align-items:center; gap:8px; padding:10px 20px; border:1px solid rgba(100,255,218,.3); border-radius:4px; background:var(--tint); color:var(--accent); text-decoration:none; text-transform:uppercase; letter-spacing:.1em; font:500 12px 'JetBrains Mono',monospace; }
+.btn:hover { background:rgba(100,255,218,.2); border-color:var(--accent); }
+.btn svg { width:13px; height:13px; }
+.proj-preview { display:block; margin:0 0 40px; border:1px solid var(--border); border-radius:8px; background:var(--panel); overflow:hidden; }
+.proj-preview img { display:block; width:100%; height:auto; }
+.tags { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:56px; }
+.tag { padding:4px 10px; border-radius:999px; background:var(--tint); color:var(--accent); font:500 11px 'JetBrains Mono',monospace; }
+.proj-section { margin-bottom:48px; }
+.proj-section-title { margin:0 0 16px; }
+.proj-section p { margin:0 0 12px; }
+.proj-section strong { color:var(--heading); font-weight:500; }
+.proj-nav { display:flex; justify-content:space-between; gap:24px; padding-top:48px; margin-top:80px; border-top:1px solid var(--border); }
+.proj-nav a { display:flex; flex-direction:column; gap:4px; text-decoration:none; }
+.proj-nav a:last-child { align-items:flex-end; }
+.proj-nav-label { color:var(--slate); font-size:10px; }
+.proj-nav-title { color:var(--heading); font-size:15px; font-weight:500; }
+@media (max-width:540px) { .page { padding-top:40px; } .back { margin-bottom:48px; } }
+</style>
+<link rel="stylesheet" href="/projects/case-study.css">
+</head>
+<body>
+<div class="spotlight" id="spotlight">
+</div>
+<main class="page"><a href="/" class="back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M19 12H5m7-7-7 7 7 7"/></svg>Дмитрий Яковлев</a>
+<p class="proj-year">2026 · Собственный проект · Разработка и тестирование</p>
+<h1 class="proj-title">ZenAir App</h1>
+<p class="proj-subtitle">Коммерческие предложения и управление монтажом</p>
+<p class="case-intro">Приложение, которое связывает подбор оборудования, предложение заказчику и монтажную заявку. Отдельные интерфейсы для менеджера, монтажника, диспетчера и администратора работают через общий API.</p>
+<div class="proj-links"><a class="btn" href="#testing">Как устроены проверки ↓</a><a class="btn" href="/projects/zenair.html">Кейс магазина →</a>
+</div>
+<dl class="case-facts">
+<div>
+<dt>Моя роль</dt>
+<dd>Проектирование, разработка интерфейсов и API, интеграции, автотесты</dd>
+</div>
+<div>
+<dt>Стек</dt>
+<dd>React · TypeScript · Express · Prisma · MySQL</dd>
+</div>
+<div>
+<dt>Проверки</dt>
+<dd>Vitest · Testing Library · Supertest · Playwright</dd>
+</div>
+</dl>
+<nav class="case-toc" aria-label="Разделы кейса"><a href="#task">Задача</a><a href="#quote">Коммерческое предложение</a><a href="#jobs">Монтаж</a><a href="#architecture">Решения</a><a href="#testing">Тестирование</a>
+</nav>
+<div class="case-screens">
+<figure class="case-figure"><a href="/img/projects/zenair-app-quote.jpg" target="_blank" rel="noopener" aria-label="Открыть скриншот: Интерфейс подготовки коммерческого предложения ZenAir App"><img src="/img/projects/zenair-app-quote.jpg" alt="Интерфейс подготовки коммерческого предложения ZenAir App" width="600" height="900" loading="lazy"></a>
+<figcaption>Оборудование и условия предложения. Локальная сборка, демонстрационные данные.</figcaption>
+</figure>
+<figure class="case-figure"><a href="/img/projects/zenair-app-works.jpg" target="_blank" rel="noopener" aria-label="Открыть скриншот настройки монтажных работ"><img src="/img/projects/zenair-app-works.jpg" alt="Стоимость и состав монтажных работ в ZenAir App" width="600" height="900" loading="lazy"></a>
+<figcaption>Базовый монтаж и дополнительные работы. Данные для демонстрации интерфейса.</figcaption>
+</figure>
+</div>
+<section id="task" class="proj-section">
+<p class="proj-section-title">01 / Задача</p>
+<h2 class="case-heading">Связать продажу оборудования и выполнение работ</h2>
+<p>После подбора техники нужно рассчитать монтаж, подготовить предложение заказчику и передать данные исполнителю. Я разработал приложение для этих связанных задач: от выбора оборудования до изменения статуса монтажной заявки.</p>
+<p>Проектировал структуру данных, разрабатывал пользовательские интерфейсы и API, синхронизацию каталога и автоматизированные проверки.</p>
+<ol class="case-flow">
+<li>Оборудование и работы</li>
+<li>Предложение заказчику</li>
+<li>Назначение монтажника</li>
+<li>Выполнение заявки</li>
+</ol>
+</section>
+<section id="quote" class="proj-section">
+<p class="proj-section-title">02 / Работа менеджера</p>
+<h2 class="case-heading">Предложение с оборудованием, работами и условиями</h2>
+<p>Менеджер выбирает оборудование по бренду, серии и модели, добавляет монтажные работы, условия и данные заказчика. Предложение сохраняется в истории, доступно для экспорта в PDF/PNG и просмотра заказчиком по ссылке без регистрации.</p>
+<p>Заказчик может принять предложение по ссылке; менеджер видит его статус. Для выданного КП сохраняются состав оборудования, цены и условия, чтобы документ можно было повторно открыть после изменения текущего каталога.</p>
+<div class="case-grid">
+<article class="case-card">
+<h3>Связь с WooCommerce</h3>
+<p>Каталог приложения синхронизируется с магазином. Оборудование используется в конструкторе коммерческих предложений.</p>
+</article>
+<article class="case-card">
+<h3>Сохранённое предложение</h3>
+<p>История использует данные выданного документа. Обновление каталога не должно менять его состав и цены.</p>
+</article>
+</div>
+</section>
+<section id="jobs" class="proj-section">
+<p class="proj-section-title">03 / Выполнение работ</p>
+<h2 class="case-heading">Каждому сотруднику — свой интерфейс</h2>
+<p>Из сохранённого КП менеджер создаёт монтажную заявку и назначает исполнителя. Монтажник видит свои заявки и данные по работам, а диспетчер — общую доску. Изменения статусов проходят проверку на сервере.</p>
+<div class="case-table-wrap">
+<table class="case-table">
+<thead>
+<tr>
+<th scope="col">Интерфейс</th>
+<th scope="col">Задачи</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">Менеджер</th>
+<td>Подготовка КП, история, работа с заказчиками и назначение монтажника.</td>
+</tr>
+<tr>
+<th scope="row">Монтажник</th>
+<td>Назначенные заявки, адрес и детали работ, статусы выполнения и фото.</td>
+</tr>
+<tr>
+<th scope="row">Диспетчер</th>
+<td>Общая доска заявок и наблюдение за их состоянием.</td>
+</tr>
+<tr>
+<th scope="row">Администратор</th>
+<td>Организации, сотрудники, справочники, аналитика и журнал действий.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="architecture" class="proj-section">
+<p class="proj-section-title">04 / Технические решения</p>
+<h2 class="case-heading">Общий API и явные правила работы с данными</h2>
+<div class="case-grid">
+<article class="case-card">
+<h3>Общие контракты</h3>
+<p>Типы и схемы Zod вынесены в общий пакет. Интерфейсы и сервер используют согласованную структуру данных.</p>
+</article>
+<article class="case-card">
+<h3>Ролевой доступ</h3>
+<p>Проверки на сервере учитывают роль сотрудника и организацию. Доступ не ограничивается видимостью кнопок в интерфейсе.</p>
+</article>
+<article class="case-card">
+<h3>Переходы статусов</h3>
+<p>Для заявки заданы допустимые переходы: назначена → в пути → на месте → завершена. Предусмотрена отмена.</p>
+</article>
+<article class="case-card">
+<h3>Один сервер для интерфейсов</h3>
+<p>Несколько клиентских приложений работают через общий Express API и одну схему данных Prisma.</p>
+</article>
+</div>
+</section>
+<section id="testing" class="proj-section">
+<p class="proj-section-title">05 / Автоматизация тестирования</p>
+<h2 class="case-heading">Проверки API, компонентов и пользовательского пути</h2>
+<p>В проекте есть тесты серверных обработчиков, схем данных, компонентов и браузерных сценариев. Для разных уровней используются Vitest, Supertest, Testing Library и Playwright.</p>
+<div class="case-table-wrap">
+<table class="case-table">
+<thead>
+<tr>
+<th scope="col">Уровень</th>
+<th scope="col">Примеры проверок</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">API</th>
+<td>Авторизация, доступ к данным, создание КП и обработка монтажных заявок.</td>
+</tr>
+<tr>
+<th scope="row">Компоненты</th>
+<td>Формы и состояния интерфейсов, взаимодействие с элементами управления.</td>
+</tr>
+<tr>
+<th scope="row">Браузер</th>
+<td>Вход → выбор модели → монтажные работы → данные заказчика → скачивание PNG.</td>
+</tr>
+<tr>
+<th scope="row">Негативный сценарий</th>
+<td>Печать предложения блокируется, если не заполнены обязательные данные заказчика.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>В браузерном сценарии менеджера API подменяется тестовыми ответами: проверка проходит без создания реальных клиентских записей. В этом же сценарии проверяется отсутствие горизонтального переполнения на мобильном размере экрана.</p>
+<div class="case-note">Этот сценарий проверяет пользовательский поток с тестовыми ответами API. Для оценки взаимодействия с реальной базой нужны отдельные интеграционные проверки.</div>
+</section>
+<section id="result" class="proj-section">
+<p class="proj-section-title">06 / Результат</p>
+<h2 class="case-heading">Связанные инструменты для продажи и монтажа</h2>
+<p>Реализованы конструктор предложений, история, интерфейс заказчика и работа с монтажными заявками. Проект показывает разработку бизнес-логики, нескольких интерфейсов и проверок на разных уровнях приложения.</p>
+<p><strong>Могу продемонстрировать приложение и автотесты, разобрать сценарии и технические решения на собеседовании.</strong>
+</p>
+</section><a class="case-related" href="/projects/zenair.html"><span>СВЯЗАННЫЙ ПРОЕКТ →</span><strong>ZenAir — интернет-магазин</strong>
+<p>WordPress, WooCommerce и PHP. Каталог, подбор моделей и справочник функций, связанный с оборудованием.</p></a>
+<nav class="proj-nav" aria-label="Другие проекты"><a href="/projects/"><span class="proj-nav-label">← Архив</span><span class="proj-nav-title">Все проекты</span></a><a href="/#contacts"><span class="proj-nav-label">Связаться →</span><span class="proj-nav-title">Обсудить проект</span></a>
+</nav>
+</main></body></html>

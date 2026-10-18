@@ -326,8 +326,10 @@ body {
 
 @media (max-width: 640px) {
   .experience-item, .project-item {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 8px;
+    margin: 0 0 16px;
+    padding: 20px 0;
   }
 }
 
@@ -651,7 +653,7 @@ body {
         Сейчас делаю полный цикл: <strong>дизайн в Figma → вёрстка → CMS → SEO</strong>. Работаю с 1С-Битрикс, WordPress, OpenCart, Magento, Shopify. На своём опыте знаю, что нужно производителю — потому что был внутри такого бизнеса.
       </p>
       <p>
-        Параллельно занимаюсь <strong>QA и E2E-тестированием</strong>: ручные и автотесты на <strong>Playwright + TypeScript</strong>, тестирование REST API, CI на GitHub Actions, ведение дефектов в YouTrack. Тестирую не «снаружи», а понимая, как приложение устроено внутри — читаю код и логи, работаю с DevTools, локализую дефект до причины. Примеры автотестов с зелёным CI — на <a href="https://github.com/qwerty348810/e2e_zenair" class="inline-link" target="_blank" rel="noopener">GitHub</a>.
+        Параллельно занимаюсь <strong>QA и E2E-тестированием</strong>: ручные и автотесты на <strong>Playwright + TypeScript</strong>, тестирование REST API, CI на GitHub Actions, ведение дефектов в YouTrack. Тестирую не «снаружи», а понимая, как приложение устроено внутри — читаю код и логи, работаю с DevTools, локализую дефект до причины. Могу продемонстрировать автотесты и разобрать подход к тестированию на собеседовании.
       </p>
       <p>
         В свободное время пишу разборы кейсов на <a href="https://dzen.ru/suite/5ae9706e-596d-4d97-866e-e5df78ecae60" class="inline-link" rel="noopener">Dzen</a> — про разработку, оптимизацию и инструменты.
@@ -831,35 +833,9 @@ body {
     <section id="projects" class="section">
       <h3 class="section-title">Проекты</h3>
 
-      <div class="project-item">
-        <a href="/projects/zenair.html" class="item-more">подробнее</a>
-        <div>
-          <div class="project-preview">
-            <img src="/img/projects/zenair-preview.jpg" alt="ZenAir — главная страница сайта с помощником по подбору кондиционера" width="489" height="259" loading="lazy">
-          </div>
-          <a href="https://zenair.by/" target="_blank" rel="sponsored noopener" class="project-cta">
-            Открыть сайт
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
-          </a>
-        </div>
-        <div>
-          <a href="/projects/zenair.html" class="item-title-link">
-            <h4 class="item-title">
-              ZenAir — подбор и продажа кондиционеров
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
-            </h4>
-          </a>
-          <p class="item-description">
-            Собственный проект о климатической технике: интернет-магазин на WordPress и WooCommerce с кастомной темой, каталогом кондиционеров, фильтрами, обзорами и помощником по подбору модели за четыре вопроса. Разработал интерфейс и функциональность, подготовил SEO-структуру и адаптивную версию.
-          </p>
-          <div class="tags">
-            <span class="tag">WordPress</span>
-            <span class="tag">WooCommerce</span>
-            <span class="tag">Квиз</span>
-            <span class="tag">SEO</span>
-          </div>
-        </div>
-      </div>
+      <div class="project-item"><a href="/projects/zenair-app.html" class="item-more">подробнее</a><div><a class="project-preview" href="/projects/zenair-app.html"><img src="/img/projects/zenair-app-cover.jpg" alt="ZenAir App — предложения и монтаж" width="1600" height="1000" loading="lazy"></a><a href="/projects/zenair-app.html" class="project-cta">Смотреть кейс <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a></div><div><a href="/projects/zenair-app.html" class="item-title-link"><h4 class="item-title">ZenAir App — предложения и монтаж<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></h4></a><p class="item-description">Приложение на React и TypeScript: подготовка коммерческих предложений, синхронизация каталога WooCommerce, ролевой доступ и монтажные заявки. Разработал интерфейсы и API, добавил тесты компонентов, API и сценариев на Playwright.</p><div class="tags"><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Node.js</span><span class="tag">Playwright</span></div></div></div>
+
+      <div class="project-item"><a href="/projects/zenair.html" class="item-more">подробнее</a><div><a class="project-preview" href="/projects/zenair.html"><img src="/img/projects/zenair-cover.jpg" alt="ZenAir — магазин и подбор климатической техники" width="1600" height="1000" loading="lazy"></a><a href="https://zenair.by/" target="_blank" rel="noopener" class="project-cta">Открыть магазин <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a></div><div><a href="/projects/zenair.html" class="item-title-link"><h4 class="item-title">ZenAir — магазин и подбор климатической техники<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></h4></a><p class="item-description">Собственная тема WordPress и каталог WooCommerce: бренды и серии, подбор, фильтры, сравнение и избранное. Связал товары со справочником функций, добавил интеграции и SEO-структуру.</p><div class="tags"><span class="tag">WordPress</span><span class="tag">WooCommerce</span><span class="tag">PHP</span><span class="tag">SEO</span></div></div></div>
 
       <div class="project-item">
         <a href="/projects/ptt.html" class="item-more">подробнее</a>
