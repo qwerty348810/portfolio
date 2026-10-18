@@ -19,6 +19,7 @@
 .case-figure img { display: block; width: 100%; height: auto; max-height: 650px; object-fit: contain; }
 .case-screens { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
 .case-screens .case-figure { margin-top: 0; }
+.case-screens-three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .case-figure figcaption { margin-top: 12px; font-size: 12px; color: var(--light); }
 .case-flow { display: grid; grid-template-columns: repeat(4, 1fr); padding: 0; list-style: none; gap: 12px; margin: 28px 0; counter-reset: stage; }
 .case-flow li { counter-increment: stage; border-top: 2px solid var(--border); padding: 16px 8px 0 0; font-size: 14px; color: var(--heading); }

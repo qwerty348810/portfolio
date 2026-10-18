@@ -3,23 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ZenAir App — разработка и тестирование приложения — Дмитрий Яковлев</title>
-<meta name="description" content="React и TypeScript: коммерческие предложения, монтажные заявки, ролевой доступ, API и автоматизированные проверки на Playwright.">
+<title>ZenAir App — расчёт и отправка коммерческого предложения — Дмитрий Яковлев</title>
+<meta name="description" content="Разработка приложения для расчёта оборудования и работ, формирования КП в PDF/PNG и отправки клиенту. React, TypeScript, API и Playwright.">
 <link rel="icon" href="/img/icons/favicon.ico">
 <link rel="canonical" href="https://dmitryyakovlev.by/projects/zenair-app.html">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Дмитрий Яковлев">
 <meta property="og:locale" content="ru_RU">
-<meta property="og:title" content="ZenAir App — разработка и тестирование приложения — Дмитрий Яковлев">
-<meta property="og:description" content="React и TypeScript: коммерческие предложения, монтажные заявки, ролевой доступ, API и автоматизированные проверки на Playwright.">
+<meta property="og:title" content="ZenAir App — расчёт и отправка коммерческого предложения — Дмитрий Яковлев">
+<meta property="og:description" content="Разработка приложения для расчёта оборудования и работ, формирования КП в PDF/PNG и отправки клиенту. React, TypeScript, API и Playwright.">
 <meta property="og:url" content="https://dmitryyakovlev.by/projects/zenair-app.html">
 <meta property="og:image" content="https://dmitryyakovlev.by/img/projects/zenair-app-cover.jpg">
 <meta property="og:image:width" content="1600">
 <meta property="og:image:height" content="1000">
-<meta property="og:image:alt" content="ZenAir App — разработка и тестирование приложения">
+<meta property="og:image:alt" content="ZenAir App — расчёт и отправка коммерческого предложения">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="ZenAir App — разработка и тестирование приложения — Дмитрий Яковлев">
-<meta name="twitter:description" content="React и TypeScript: коммерческие предложения, монтажные заявки, ролевой доступ, API и автоматизированные проверки на Playwright.">
+<meta name="twitter:title" content="ZenAir App — расчёт и отправка коммерческого предложения — Дмитрий Яковлев">
+<meta name="twitter:description" content="Разработка приложения для расчёта оборудования и работ, формирования КП в PDF/PNG и отправки клиенту. React, TypeScript, API и Playwright.">
 <meta name="twitter:image" content="https://dmitryyakovlev.by/img/projects/zenair-app-cover.jpg">
 <style>
 @font-face { font-family: 'Inter'; font-style: normal; font-weight: 300 700; font-display: swap; src: url('/fonts/inter-cyrillic.woff2') format('woff2'); unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116; }
@@ -64,124 +64,124 @@ a { color:inherit; }
 <body>
 <div class="spotlight" id="spotlight">
 </div>
-<main class="page"><a href="/" class="back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M19 12H5m7-7-7 7 7 7"/></svg>Дмитрий Яковлев</a>
+<main class="page">
+<a href="/" class="back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M19 12H5m7-7-7 7 7 7"/></svg>Дмитрий Яковлев</a>
 <p class="proj-year">2026 · Собственный проект · Разработка и тестирование</p>
 <h1 class="proj-title">ZenAir App</h1>
-<p class="proj-subtitle">Коммерческие предложения и управление монтажом</p>
-<p class="case-intro">Приложение, которое связывает подбор оборудования, предложение заказчику и монтажную заявку. Отдельные интерфейсы для менеджера, монтажника, диспетчера и администратора работают через общий API.</p>
-<div class="proj-links"><a class="btn" href="#testing">Как устроены проверки ↓</a><a class="btn" href="/projects/zenair.html">Кейс магазина →</a>
+<p class="proj-subtitle">Расчёт и отправка коммерческого предложения клиенту</p>
+<p class="case-intro">Клиент сравнивает предложения нескольких компаний. ZenAir App помогает отправить ему расчёт с оборудованием, стоимостью работ, скидкой и итоговой суммой — чтобы он мог вернуться к предложению, когда будет готов принять решение.</p>
+<div class="proj-links"><a class="btn" href="#scenario">Как формируется КП ↓</a><a class="btn" href="#testing">Тестирование ↓</a><a class="btn" href="/projects/zenair.html">Кейс магазина →</a>
 </div>
 <dl class="case-facts">
 <div>
 <dt>Моя роль</dt>
-<dd>Проектирование, разработка интерфейсов и API, интеграции, автотесты</dd>
+<dd>Проектирование, разработка интерфейса и API, интеграции, автотесты</dd>
 </div>
 <div>
-<dt>Стек</dt>
-<dd>React · TypeScript · Express · Prisma · MySQL</dd>
+<dt>Основной сценарий</dt>
+<dd>Рассчитать → сформировать КП → отправить → вернуться к предложению</dd>
 </div>
 <div>
-<dt>Проверки</dt>
-<dd>Vitest · Testing Library · Supertest · Playwright</dd>
+<dt>Технологии</dt>
+<dd>React · TypeScript · Express · Prisma · MySQL · Playwright</dd>
 </div>
 </dl>
-<nav class="case-toc" aria-label="Разделы кейса"><a href="#task">Задача</a><a href="#quote">Коммерческое предложение</a><a href="#jobs">Монтаж</a><a href="#architecture">Решения</a><a href="#testing">Тестирование</a>
+<nav class="case-toc" aria-label="Разделы кейса"><a href="#task">Задача</a><a href="#scenario">Формирование КП</a><a href="#return">Возврат к расчёту</a><a href="#solutions">Решения</a><a href="#testing">Проверки</a>
 </nav>
-<div class="case-screens">
-<figure class="case-figure"><a href="/img/projects/zenair-app-quote.jpg" target="_blank" rel="noopener" aria-label="Открыть скриншот: Интерфейс подготовки коммерческого предложения ZenAir App"><img src="/img/projects/zenair-app-quote.jpg" alt="Интерфейс подготовки коммерческого предложения ZenAir App" width="600" height="900" loading="lazy"></a>
-<figcaption>Оборудование и условия предложения. Локальная сборка, демонстрационные данные.</figcaption>
-</figure>
-<figure class="case-figure"><a href="/img/projects/zenair-app-works.jpg" target="_blank" rel="noopener" aria-label="Открыть скриншот настройки монтажных работ"><img src="/img/projects/zenair-app-works.jpg" alt="Стоимость и состав монтажных работ в ZenAir App" width="600" height="900" loading="lazy"></a>
-<figcaption>Базовый монтаж и дополнительные работы. Данные для демонстрации интерфейса.</figcaption>
-</figure>
-</div>
+
 <section id="task" class="proj-section">
 <p class="proj-section-title">01 / Задача</p>
-<h2 class="case-heading">Связать продажу оборудования и выполнение работ</h2>
-<p>После подбора техники нужно рассчитать монтаж, подготовить предложение заказчику и передать данные исполнителю. Я разработал приложение для этих связанных задач: от выбора оборудования до изменения статуса монтажной заявки.</p>
-<p>Проектировал структуру данных, разрабатывал пользовательские интерфейсы и API, синхронизацию каталога и автоматизированные проверки.</p>
+<h2 class="case-heading">Оставить клиенту понятное предложение после разговора</h2>
+<p>Покупатель может позвонить в несколько компаний, уточнить модели и цены, а решение принять позже. Озвученные по телефону суммы легко перепутать: где учтены работы, какая модель предложена и сколько всё будет стоить в итоге.</p>
+<p>Я разработал приложение для подготовки и отправки коммерческого предложения. В нём менеджер собирает оборудование и работы, задаёт условия сделки и получает документ, который клиент может сохранить и открыть повторно после сравнения вариантов.</p>
 <ol class="case-flow">
-<li>Оборудование и работы</li>
-<li>Предложение заказчику</li>
-<li>Назначение монтажника</li>
-<li>Выполнение заявки</li>
+<li>Выбрать оборудование</li>
+<li>Рассчитать предложение</li>
+<li>Отправить клиенту</li>
+<li>Вернуться к расчёту</li>
 </ol>
 </section>
-<section id="quote" class="proj-section">
-<p class="proj-section-title">02 / Работа менеджера</p>
-<h2 class="case-heading">Предложение с оборудованием, работами и условиями</h2>
-<p>Менеджер выбирает оборудование по бренду, серии и модели, добавляет монтажные работы, условия и данные заказчика. Предложение сохраняется в истории, доступно для экспорта в PDF/PNG и просмотра заказчиком по ссылке без регистрации.</p>
-<p>Заказчик может принять предложение по ссылке; менеджер видит его статус. Для выданного КП сохраняются состав оборудования, цены и условия, чтобы документ можно было повторно открыть после изменения текущего каталога.</p>
+
+<section id="scenario" class="proj-section">
+<p class="proj-section-title">02 / Основной сценарий</p>
+<h2 class="case-heading">От выбора моделей до отправки готового КП</h2>
+<p>На скриншотах — последовательность формирования предложения в мобильном приложении. Состав и стоимость работ входят в расчёт; главный результат сценария — готовый документ для клиента.</p>
 <div class="case-grid">
 <article class="case-card">
-<h3>Связь с WooCommerce</h3>
-<p>Каталог приложения синхронизируется с магазином. Оборудование используется в конструкторе коммерческих предложений.</p>
+<h3>1. Оборудование и расчёт</h3>
+<p>Менеджер добавляет модели и количество. В предложении видны характеристики техники, цены и итог. Стоимость необходимых работ учитывается в общей сумме.</p>
 </article>
 <article class="case-card">
-<h3>Сохранённое предложение</h3>
-<p>История использует данные выданного документа. Обновление каталога не должно менять его состав и цены.</p>
+<h3>2. Заказчик и условия</h3>
+<p>Заполняет данные клиента, скидку, предоплату и сроки. Внутренняя заметка сотрудника отделена от информации, которая попадёт в документ.</p>
 </article>
 </div>
-</section>
-<section id="jobs" class="proj-section">
-<p class="proj-section-title">03 / Выполнение работ</p>
-<h2 class="case-heading">Каждому сотруднику — свой интерфейс</h2>
-<p>Из сохранённого КП менеджер создаёт монтажную заявку и назначает исполнителя. Монтажник видит свои заявки и данные по работам, а диспетчер — общую доску. Изменения статусов проходят проверку на сервере.</p>
-<div class="case-table-wrap">
-<table class="case-table">
-<thead>
-<tr>
-<th scope="col">Интерфейс</th>
-<th scope="col">Задачи</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th scope="row">Менеджер</th>
-<td>Подготовка КП, история, работа с заказчиками и назначение монтажника.</td>
-</tr>
-<tr>
-<th scope="row">Монтажник</th>
-<td>Назначенные заявки, адрес и детали работ, статусы выполнения и фото.</td>
-</tr>
-<tr>
-<th scope="row">Диспетчер</th>
-<td>Общая доска заявок и наблюдение за их состоянием.</td>
-</tr>
-<tr>
-<th scope="row">Администратор</th>
-<td>Организации, сотрудники, справочники, аналитика и журнал действий.</td>
-</tr>
-</tbody>
-</table>
+<div class="case-screens">
+<figure class="case-figure"><a href="/img/projects/zenair-app-equipment.jpg" target="_blank" rel="noopener" aria-label="Открыть скриншот: Выбранное оборудование и итоговая сумма в ZenAir App"><img src="/img/projects/zenair-app-equipment.jpg" alt="Выбранное оборудование и итоговая сумма в ZenAir App" width="287" height="630" loading="lazy"></a>
+<figcaption>1. Модели, характеристики, количество и текущий итог расчёта.</figcaption>
+</figure>
+<figure class="case-figure"><a href="/img/projects/zenair-app-customer.jpg" target="_blank" rel="noopener" aria-label="Открыть скриншот: Данные заказчика и условия предложения"><img src="/img/projects/zenair-app-customer.jpg" alt="Данные заказчика и условия предложения" width="285" height="636" loading="lazy"></a>
+<figcaption>2. Заказчик, скидка, предоплата и сроки. Внутренняя заметка не печатается в КП.</figcaption>
+</figure>
+</div>
+<div class="case-grid">
+<article class="case-card">
+<h3>3. Предпросмотр и формат</h3>
+<p>Перед отправкой менеджер видит документ: оборудование, работы, скидку и итоговую стоимость. Выбирает PDF или PNG.</p>
+</article>
+<article class="case-card">
+<h3>4. Отправка клиенту</h3>
+<p>После подготовки файла нажимает «Отправить». На поддерживаемом устройстве открывается системное меню: можно выбрать установленный мессенджер или почту.</p>
+</article>
+</div>
+<div class="case-screens case-screens-three">
+<figure class="case-figure"><a href="/img/projects/zenair-app-preview.jpg" target="_blank" rel="noopener" aria-label="Открыть скриншот: Предпросмотр КП и выбор формата PNG или PDF"><img src="/img/projects/zenair-app-preview.jpg" alt="Предпросмотр КП и выбор формата PNG или PDF" width="480" height="1069" loading="lazy"></a>
+<figcaption>3. Предпросмотр документа и выбор PDF или PNG.</figcaption>
+</figure>
+<figure class="case-figure"><a href="/img/projects/zenair-app-ready.jpg" target="_blank" rel="noopener" aria-label="Открыть скриншот: Подготовленный файл коммерческого предложения"><img src="/img/projects/zenair-app-ready.jpg" alt="Подготовленный файл коммерческого предложения" width="483" height="1075" loading="lazy"></a>
+<figcaption>4. Файл подготовлен. Отправка выполняется отдельным нажатием.</figcaption>
+</figure>
+<figure class="case-figure"><a href="/img/projects/zenair-app-share.jpg" target="_blank" rel="noopener" aria-label="Открыть скриншот: Системное меню отправки коммерческого предложения на Android"><img src="/img/projects/zenair-app-share.jpg" alt="Системное меню отправки коммерческого предложения на Android" width="486" height="1071" loading="lazy"></a>
+<figcaption>5. Выбор мессенджера или почты в системном меню Android.</figcaption>
+</figure>
 </div>
 </section>
-<section id="architecture" class="proj-section">
+
+<section id="return" class="proj-section">
+<p class="proj-section-title">03 / Ценность для клиента</p>
+<h2 class="case-heading">Расчёт, к которому можно вернуться</h2>
+<p>После разговора у клиента остаётся конкретное предложение: состав оборудования, характеристики, работы, условия и итоговая сумма. Он может снова открыть документ в переписке, обсудить его с близкими и сопоставить с предложениями других компаний.</p>
+<p>КП сохраняется в истории приложения. Помимо отправки файла предусмотрен просмотр по ссылке без регистрации: заказчик может открыть предложение и принять его, а менеджер — увидеть его статус.</p>
+<div class="case-note">В одном предложении остаются выбранные модели, стоимость оборудования и работ, скидка и условия. Клиент может сравнивать конкретный расчёт и вернуться к обсуждению с менеджером.</div>
+</section>
+
+<section id="solutions" class="proj-section">
 <p class="proj-section-title">04 / Технические решения</p>
-<h2 class="case-heading">Общий API и явные правила работы с данными</h2>
+<h2 class="case-heading">Каталог, расчёты и отправка документа</h2>
 <div class="case-grid">
 <article class="case-card">
-<h3>Общие контракты</h3>
-<p>Типы и схемы Zod вынесены в общий пакет. Интерфейсы и сервер используют согласованную структуру данных.</p>
+<h3>Каталог из WooCommerce</h3>
+<p>Приложение получает оборудование из магазина. Менеджер выбирает модель из каталога и добавляет её в предложение.</p>
 </article>
 <article class="case-card">
-<h3>Ролевой доступ</h3>
-<p>Проверки на сервере учитывают роль сотрудника и организацию. Доступ не ограничивается видимостью кнопок в интерфейсе.</p>
+<h3>Сохранение выданного КП</h3>
+<p>Состав, цены и условия сохраняются вместе с предложением. Изменение текущего каталога не должно менять ранее выданный расчёт.</p>
 </article>
 <article class="case-card">
-<h3>Переходы статусов</h3>
-<p>Для заявки заданы допустимые переходы: назначена → в пути → на месте → завершена. Предусмотрена отмена.</p>
+<h3>PDF и PNG</h3>
+<p>Предпросмотр позволяет проверить документ перед экспортом. Файл можно сохранить и передать клиенту привычным способом.</p>
 </article>
 <article class="case-card">
-<h3>Один сервер для интерфейсов</h3>
-<p>Несколько клиентских приложений работают через общий Express API и одну схему данных Prisma.</p>
+<h3>Системное меню отправки</h3>
+<p>Для поддерживаемых браузеров используется Web Share API. Если передача файлов недоступна, предусмотрено скачивание.</p>
 </article>
 </div>
 </section>
+
 <section id="testing" class="proj-section">
 <p class="proj-section-title">05 / Автоматизация тестирования</p>
-<h2 class="case-heading">Проверки API, компонентов и пользовательского пути</h2>
-<p>В проекте есть тесты серверных обработчиков, схем данных, компонентов и браузерных сценариев. Для разных уровней используются Vitest, Supertest, Testing Library и Playwright.</p>
+<h2 class="case-heading">Проверка пути от выбора модели до готового файла</h2>
+<p>В проекте используются Vitest, Supertest, Testing Library и Playwright: проверки API, компонентов и пользовательских сценариев.</p>
 <div class="case-table-wrap">
 <table class="case-table">
 <thead>
@@ -193,34 +193,36 @@ a { color:inherit; }
 <tbody>
 <tr>
 <th scope="row">API</th>
-<td>Авторизация, доступ к данным, создание КП и обработка монтажных заявок.</td>
+<td>Авторизация, доступ к данным, создание и чтение предложений.</td>
 </tr>
 <tr>
 <th scope="row">Компоненты</th>
-<td>Формы и состояния интерфейсов, взаимодействие с элементами управления.</td>
+<td>Формы и состояния интерфейса, работа с данными предложения.</td>
 </tr>
 <tr>
-<th scope="row">Браузер</th>
-<td>Вход → выбор модели → монтажные работы → данные заказчика → скачивание PNG.</td>
+<th scope="row">Playwright</th>
+<td>Вход → выбор модели → добавление работ → данные заказчика → скачивание PNG.</td>
 </tr>
 <tr>
 <th scope="row">Негативный сценарий</th>
-<td>Печать предложения блокируется, если не заполнены обязательные данные заказчика.</td>
+<td>Печать блокируется, если не заполнены обязательные данные заказчика.</td>
 </tr>
 </tbody>
 </table>
 </div>
-<p>В браузерном сценарии менеджера API подменяется тестовыми ответами: проверка проходит без создания реальных клиентских записей. В этом же сценарии проверяется отсутствие горизонтального переполнения на мобильном размере экрана.</p>
-<div class="case-note">Этот сценарий проверяет пользовательский поток с тестовыми ответами API. Для оценки взаимодействия с реальной базой нужны отдельные интеграционные проверки.</div>
+<p>В браузерном сценарии менеджера API подменяется тестовыми ответами: тест не создаёт реальные клиентские записи. Также проверяется отсутствие горизонтального переполнения на мобильном размере экрана.</p>
+<p>Системное меню отправки на скриншоте показывает работу функции на Android. Оно не входит в описанный Playwright-сценарий скачивания PNG.</p>
 </section>
-<section id="result" class="proj-section">
-<p class="proj-section-title">06 / Результат</p>
-<h2 class="case-heading">Связанные инструменты для продажи и монтажа</h2>
-<p>Реализованы конструктор предложений, история, интерфейс заказчика и работа с монтажными заявками. Проект показывает разработку бизнес-логики, нескольких интерфейсов и проверок на разных уровнях приложения.</p>
-<p><strong>Могу продемонстрировать приложение и автотесты, разобрать сценарии и технические решения на собеседовании.</strong>
+
+<section id="additional" class="proj-section">
+<p class="proj-section-title">06 / Дополнительные возможности</p>
+<h2 class="case-heading">Что ещё есть в приложении</h2>
+<p>Ролевой доступ, панель управления, монтажные заявки и интерфейсы сотрудников поддерживают дальнейшую работу с заказом. Основной сценарий этого кейса — подготовка понятного расчёта и отправка предложения клиенту.</p>
+<p><strong>Могу продемонстрировать формирование КП и автотесты, разобрать расчёты, экспорт и технические решения на собеседовании.</strong>
 </p>
-</section><a class="case-related" href="/projects/zenair.html"><span>СВЯЗАННЫЙ ПРОЕКТ →</span><strong>ZenAir — интернет-магазин</strong>
-<p>WordPress, WooCommerce и PHP. Каталог, подбор моделей и справочник функций, связанный с оборудованием.</p></a>
+</section>
+<a class="case-related" href="/projects/zenair.html"><span>СВЯЗАННЫЙ ПРОЕКТ →</span><strong>ZenAir — интернет-магазин</strong>
+<p>Каталог WordPress/WooCommerce, из которого оборудование поступает в конструктор коммерческого предложения.</p></a>
 <nav class="proj-nav" aria-label="Другие проекты"><a href="/projects/"><span class="proj-nav-label">← Архив</span><span class="proj-nav-title">Все проекты</span></a><a href="/#contacts"><span class="proj-nav-label">Связаться →</span><span class="proj-nav-title">Обсудить проект</span></a>
 </nav>
 </main></body></html>
